@@ -67,9 +67,9 @@ export class ClearDataConfig extends Component {
           <FormGroup>
             <Form.Label>{t('setting:Current cache size')}</Form.Label>
             <InputGroup>
-              <InputGroup.Button>
+              <InputGroup.Append>
                 <Button onClick={this.handleUpdateCacheSize}>{t('setting:Update')}</Button>
-              </InputGroup.Button>
+              </InputGroup.Append>
               <FormControl type="number"
                 disabled
                 value={Math.round(this.state.cacheSize / 1048576)}

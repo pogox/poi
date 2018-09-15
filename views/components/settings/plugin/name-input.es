@@ -54,7 +54,7 @@ export class NameInput extends PureComponent {
             disabled={this.props.manuallyInstallStatus === 1 || this.props.npmWorking}
             placeholder={t('setting:Input plugin package name') + '...'}>
           </FormControl>
-          <InputGroup.Button>
+          <InputGroup.Append>
             <Button variant='primary'
               disabled={this.props.manuallyInstallStatus === 1 ||
                       this.props.npmWorking ||
@@ -62,7 +62,7 @@ export class NameInput extends PureComponent {
               onClick={this.props.handleManuallyInstall.bind(null, this.state.packageName)}>
               {t('setting:Install')}
             </Button>
-          </InputGroup.Button>
+          </InputGroup.Append>
         </InputGroup>
       </FormGroup>
     )

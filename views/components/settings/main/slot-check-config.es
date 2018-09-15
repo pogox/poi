@@ -99,9 +99,9 @@ export class SlotCheckConfig extends Component {
                     variant={inputValid ? 'success' : 'error'}
                     value={this.state.value}
                     onChange={this.handleChange}/>
-                  <InputGroup.Button>
+                  <InputGroup.Append>
                     {submitBtn}
-                  </InputGroup.Button>
+                  </InputGroup.Append>
                 </InputGroup>
               </FormGroup>
             </Card>
