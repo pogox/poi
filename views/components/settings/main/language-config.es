@@ -29,7 +29,7 @@ export class LanguageConfig extends Component {
     return (
       <Grid>
         <Col xs={6}>
-          <FormControl componentClass="select" value={this.props.value} onChange={this.handleSetLanguage}>
+          <FormControl as="select" value={this.props.value} onChange={this.handleSetLanguage}>
             {
               window.LOCALES.map(lng => (
                 <option value={lng.locale} key={lng.locale}>

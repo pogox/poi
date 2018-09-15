@@ -74,7 +74,7 @@ export const AACIIndicator = translate(['main'])(connect(
     AACIs.length ?
       <span className="ship-aaci">
         <OverlayTrigger placement="top" overlay={<Tooltip className="info-tooltip" id={`aaci-info-${shipId}`}>{tooltip}</Tooltip>}>
-          <Label bsStyle='warning'>{t('main:AACI')}</Label>
+          <Label variant='warning'>{t('main:AACI')}</Label>
         </OverlayTrigger>
       </span>
       : <span />

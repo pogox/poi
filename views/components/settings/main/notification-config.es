@@ -96,7 +96,7 @@ export class NotificationConfig extends Component {
       <Grid>
         <Col xs={6}>
           <Button
-            bsStyle={this.props.enabled ? 'success' : 'danger'}
+            variant={this.props.enabled ? 'success' : 'danger'}
             onClick={this.handleSetNotify.bind(this, null)}
             style={{width: '100%'}}>
             {(get(this.props, 'enabled', true)) ? '√ ' : ''}
@@ -114,32 +114,32 @@ export class NotificationConfig extends Component {
         </Col>
         <Col xs={12} style={{marginTop: 10}}>
           <ButtonGroup style={{display: 'flex'}}>
-            <Button bsStyle={this.props.construction ? 'success' : 'danger'}
+            <Button variant={this.props.construction ? 'success' : 'danger'}
               onClick={this.handleSetNotify.bind(this, 'construction')}
               className='notif-button'>
               {t('setting:Construction')}
             </Button>
-            <Button bsStyle={this.props.expedition ? 'success' : 'danger'}
+            <Button variant={this.props.expedition ? 'success' : 'danger'}
               onClick={this.handleSetNotify.bind(this, 'expedition')}
               className='notif-button'>
               {t('setting:Expedition')}
             </Button>
-            <Button bsStyle={this.props.repair ? 'success' : 'danger'}
+            <Button variant={this.props.repair ? 'success' : 'danger'}
               onClick={this.handleSetNotify.bind(this, 'repair')}
               className='notif-button'>
               {t('setting:Docking')}
             </Button>
-            <Button bsStyle={this.props.morale ? 'success' : 'danger'}
+            <Button variant={this.props.morale ? 'success' : 'danger'}
               onClick={this.handleSetNotify.bind(this, 'morale')}
               className='notif-button'>
               {t('setting:Morale')}
             </Button>
-            <Button bsStyle={this.props.others ? 'success' : 'danger'}
+            <Button variant={this.props.others ? 'success' : 'danger'}
               onClick={this.handleSetNotify.bind(this, 'others')}
               className='notif-button'>
               {t('setting:Others')}
             </Button>
-            <Button onClick={this.handleSetTimeSettingShow} bsStyle='primary' style={{width: 40}}>
+            <Button onClick={this.handleSetTimeSettingShow} variant='primary' style={{width: 40}}>
               <FontAwesome name={this.state.timeSettingShow ? 'angle-up' : 'angle-down'} />
             </Button>
           </ButtonGroup>

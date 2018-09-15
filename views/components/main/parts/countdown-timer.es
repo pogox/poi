@@ -133,7 +133,7 @@ class CountdownNotifierLabelInner extends Component {
     timerKey: PropTypes.string.isRequired,  // A globally unique string for the timer
     completeTime: PropTypes.number.isRequired,
     getNotifyOptions: PropTypes.func,   // (props, timeRemaining) => options | undefined
-    getLabelStyle: PropTypes.func,      // (props, timeRemaining) => bsStyle
+    getLabelStyle: PropTypes.func,      // (props, timeRemaining) => variant
     resolveTime: PropTypes.func,        // (timeRemaining) => interpreted time string
   }
   static defaultProps = {
@@ -170,7 +170,7 @@ class CountdownNotifierLabelInner extends Component {
   }
   render() {
     return (
-      <Label className="countdown-timer-label" bsStyle={this.state.style}>
+      <Label className="countdown-timer-label" variant={this.state.style}>
         {
           this.props.completeTime >= 0 &&
           <CountdownTimerInner countdownId={this.props.timerKey}

@@ -146,7 +146,7 @@ export class PoiMapReminder extends Component {
         <div>
           {
             !mapHp ? undefined :
-              <ProgressBar bsStyle="info" now={mapHp[0]} max={mapHp[1]} />
+              <ProgressBar variant="info" now={mapHp[0]} max={mapHp[1]} />
           }
           <div className='alert alert-default'>
             <span id='map-reminder-area'>

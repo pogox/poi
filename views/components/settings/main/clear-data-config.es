@@ -91,17 +91,17 @@ export class ClearDataConfig extends Component {
           </FormGroup>
         </Col>
         <Col xs={6}>
-          <Button bsStyle="danger" onClick={this.handleClearCookie} style={{width: '100%'}}>
+          <Button variant="danger" onClick={this.handleClearCookie} style={{width: '100%'}}>
             {t('setting:Delete cookies')}
           </Button>
         </Col>
         <Col xs={6}>
-          <Button bsStyle="danger" onClick={this.handleClearCache} style={{width: '100%'}}>
+          <Button variant="danger" onClick={this.handleClearCache} style={{width: '100%'}}>
             {t('setting:Delete cache')}
           </Button>
         </Col>
         <Col xs={12}>
-          <Alert bsStyle='warning' style={{marginTop: '10px'}}>
+          <Alert variant='warning' style={{marginTop: '10px'}}>
             {t('setting:If connection error occurs frequently, delete both of them')}
           </Alert>
         </Col>

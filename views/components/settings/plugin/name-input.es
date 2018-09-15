@@ -55,7 +55,7 @@ export class NameInput extends PureComponent {
             placeholder={t('setting:Input plugin package name') + '...'}>
           </FormControl>
           <InputGroup.Button>
-            <Button bsStyle='primary'
+            <Button variant='primary'
               disabled={this.props.manuallyInstallStatus === 1 ||
                       this.props.npmWorking ||
                       !validPackageName}

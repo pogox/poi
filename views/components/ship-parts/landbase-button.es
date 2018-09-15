@@ -7,12 +7,12 @@ import { translate, Trans } from 'react-i18next'
 
 import './assets/landbase-button.css'
 
-const fatiguedLabel = <Label bsStyle='danger' className='airbase-state-label'><Trans>main:Fatigued</Trans></Label>
-const emptyLabel = <Label bsStyle='warning' className='airbase-state-label'><Trans>main:Empty Slot</Trans></Label>
-const relocateLabel = <Label bsStyle='warning' className='airbase-state-label'><Trans>main:Relocating</Trans></Label>
-const resupplyLabel = <Label bsStyle='warning' className='airbase-state-label'><Trans>main:Resupply Needed</Trans></Label>
-const noActionLabel = <Label bsStyle='warning' className='airbase-state-label'><Trans>main:No Action</Trans></Label>
-const readyLabel = <Label bsStyle='success' className='airbase-state-label'><Trans>main:Ready</Trans></Label>
+const fatiguedLabel = <Label variant='danger' className='airbase-state-label'><Trans>main:Fatigued</Trans></Label>
+const emptyLabel = <Label variant='warning' className='airbase-state-label'><Trans>main:Empty Slot</Trans></Label>
+const relocateLabel = <Label variant='warning' className='airbase-state-label'><Trans>main:Relocating</Trans></Label>
+const resupplyLabel = <Label variant='warning' className='airbase-state-label'><Trans>main:Resupply Needed</Trans></Label>
+const noActionLabel = <Label variant='warning' className='airbase-state-label'><Trans>main:No Action</Trans></Label>
+const readyLabel = <Label variant='success' className='airbase-state-label'><Trans>main:Ready</Trans></Label>
 
 export const LandbaseButton = translate(['resources'])(connect(state => ({
   sortieStatus: get(state, 'sortie.sortieStatus', []),
@@ -43,7 +43,7 @@ export const LandbaseButton = translate(['resources'])(connect(state => ({
   const squardCond = airbaseProps.filter(a => !a.allEmpty).map(a => a.squardCond).reduce((a, b) => a * b, 1)
   const noAction = airbaseProps.filter(a => !a.allEmpty).map(a => a.noAction).reduce((a, b) => a || b, false)
   const sortie = sortieStatus.filter(a => !a.allEmpty).reduce((a, b) => a || b, false)
-  const bsStyle = (() => {
+  const variant = (() => {
     if (sortie) {
       return 'default'
     } else if (squardCond > 1) {
@@ -84,7 +84,7 @@ export const LandbaseButton = translate(['resources'])(connect(state => ({
     <OverlayTrigger placement='bottom' overlay={propTooltip}>
       <Button
         bsSize={isMini ? 'xsmall' : 'small'}
-        bsStyle={bsStyle}
+        variant={variant}
         onClick={onClick}
         disabled={disabled}
         className={fleetId == activeFleetId ? 'active' : ''}

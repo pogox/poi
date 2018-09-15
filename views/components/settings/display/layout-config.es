@@ -98,30 +98,30 @@ export class LayoutConfig extends Component {
       <Grid>
         <Col xs={12}>
           <ButtonGroup>
-            <Button bsStyle={rightActive ? 'success' : 'danger'}
+            <Button variant={rightActive ? 'success' : 'danger'}
               onClick={e => this.handleSetLayout('horizontal', false)}>
               <a className="layout-button layout-side" />
             </Button>
-            <Button bsStyle={downActive ? 'success' : 'danger'}
+            <Button variant={downActive ? 'success' : 'danger'}
               onClick={e => this.handleSetLayout('vertical', false)}>
               <a className="layout-button layout-land" />
             </Button>
-            <Button bsStyle={upActive ? 'success' : 'danger'}
+            <Button variant={upActive ? 'success' : 'danger'}
               onClick={e => this.handleSetLayout('vertical', true)}>
               <a className="layout-button layout-land" style={{ transform: 'scaleY(-1)' }} />
             </Button>
-            <Button bsStyle={leftActive ? 'success' : 'danger'}
+            <Button variant={leftActive ? 'success' : 'danger'}
               onClick={e => this.handleSetLayout('horizontal', true)}>
               <a className="layout-button layout-side" style={{ transform: 'scaleX(-1)' }} />
             </Button>
 
           </ButtonGroup>
           <ButtonGroup style={{ marginLeft: 25 }}>
-            <Button bsStyle={isolateGameWindow ? 'success' : 'danger'}
+            <Button variant={isolateGameWindow ? 'success' : 'danger'}
               onClick={this.handleSetIsolateGameWindow}>
               <a className="layout-button layout-separate" />
             </Button>
-            <Button bsStyle={overlayPanel && !isolateGameWindow ? 'success' : 'danger'}
+            <Button variant={overlayPanel && !isolateGameWindow ? 'success' : 'danger'}
               onClick={e => this.handleSetOverlayPanel()}>
               <a className="layout-button overlay-panel" />
             </Button>
@@ -129,15 +129,15 @@ export class LayoutConfig extends Component {
         </Col>
         <Col xs={12} style={{ marginTop: 10 }}>
           <ButtonGroup>
-            <Button bsStyle={!enableDoubleTabbed ? 'success' : 'danger'}
+            <Button variant={!enableDoubleTabbed ? 'success' : 'danger'}
               onClick={e => this.handleSetDoubleTabbed(false)}>
               <a className="layout-button doubletabbed-disable" style={{ transform: 'scaleX(-1)' }} />
             </Button>
-            <Button bsStyle={enableDoubleTabbed && !verticalDoubleTabbed ? 'success' : 'danger'}
+            <Button variant={enableDoubleTabbed && !verticalDoubleTabbed ? 'success' : 'danger'}
               onClick={e => this.handleSetDoubleTabbed(true, false)}>
               <a className="layout-button doubletabbed-horizontal" />
             </Button>
-            <Button bsStyle={enableDoubleTabbed && verticalDoubleTabbed ? 'success' : 'danger'}
+            <Button variant={enableDoubleTabbed && verticalDoubleTabbed ? 'success' : 'danger'}
               onClick={e => this.handleSetDoubleTabbed(true, true)}>
               <a className="layout-button doubletabbed-vertical" style={{ transform: 'scaleY(-1)' }} />
             </Button>

@@ -121,7 +121,7 @@ export class FCD extends Component {
           fcds.map(fcd => (
             fcd
               ? <span key={fcd[0]} className="data-version">
-                {fcd[0]}: <Label bsStyle="primary">{fcd[1]}</Label>
+                {fcd[0]}: <Label variant="primary">{fcd[1]}</Label>
               </span>
               : null
           ))

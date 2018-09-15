@@ -44,7 +44,7 @@ export class ModalTrigger extends PureComponent {
             this.handleToggle()
             button.func()
           }
-        } bsStyle={button.style}>{button.name}</Button>
+        } variant={button.style}>{button.name}</Button>
       )
     })
   }

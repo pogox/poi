@@ -125,21 +125,21 @@ export class ShortcutConfig extends Component {
         <ButtonGroup justified>
           <Button
             active={false}
-            bsStyle="link"
+            variant="link"
             style={{width: '25%', align: 'left', cursor: 'default'}} >
             {this.props.label}
           </Button>
           <Button
             active={this.active()}
             disabled={!this.active() || this.recording()}
-            bsStyle={!this.active() ? 'default' : (this.enabled() ? "success" : "danger")}
+            variant={!this.active() ? 'default' : (this.enabled() ? "success" : "danger")}
             onClick={this.recording() || (!this.active() ? null : this.handleClickRecord)}
             style={{width: '60%'}} >
             {this.displayText()}
           </Button>
           {
             this.showDisableButton() ?
-              <Button bsStyle="danger"
+              <Button variant="danger"
                 onMouseDown={this.handleDisable}
                 style={{width: '15%'}}>
                 <i className="fa fa-times"></i>

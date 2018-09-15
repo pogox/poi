@@ -193,7 +193,7 @@ export class WctfDB extends Component {
         >
           <FA name="refresh" spin={updating} />
         </Button>
-        <Trans>setting:Who Calls The Fleet Database</Trans>: <Label bsStyle="primary">{this.props.version}</Label>
+        <Trans>setting:Who Calls The Fleet Database</Trans>: <Label variant="primary">{this.props.version}</Label>
       </>
     )
   }

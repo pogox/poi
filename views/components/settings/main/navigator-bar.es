@@ -147,8 +147,8 @@ export class NavigatorBar extends React.Component {
         </div>
         <div className='navigator-btn'>
           <ButtonGroup>
-            <Button bsSize='small' bsStyle='primary' onClick={navigateAction}>{navigateIcon}</Button>
-            <Button bsSize='small' bsStyle='warning' onClick={gameRefreshPage} onContextMenu={gameReloadFlash}><FontAwesome name='refresh' /></Button>
+            <Button bsSize='small' variant='primary' onClick={navigateAction}>{navigateIcon}</Button>
+            <Button bsSize='small' variant='warning' onClick={gameRefreshPage} onContextMenu={gameReloadFlash}><FontAwesome name='refresh' /></Button>
           </ButtonGroup>
           <ButtonGroup style={{marginLeft: 5}}>
             <OverlayTrigger placement='top' overlay={<Tooltip id='nav-homepage'>{t('setting:Set as homepage')}</Tooltip>}>

@@ -102,7 +102,7 @@ export class ResolutionConfig extends Component {
           </Checkbox>
         </Col>
         <Col xs={4}>
-          <FormControl componentClass="select"
+          <FormControl as="select"
             value={this.state.width}
             onChange={e => this.handleSetWebviewWidthWithDebounce(e.target.value, false)}
             disabled={!useFixedResolution} >

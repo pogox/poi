@@ -50,7 +50,7 @@ export class StatusLabel extends React.Component {
           </Tooltip>
         }>
           <Label
-            bsStyle={styles[i] || 'default'}
+            variant={styles[i] || 'default'}
             style={i > 2 ? {color: color[i - 3] || '' } : {} }
           >
             <FontAwesome key={0} name={icons[i] || 'tag'} />
@@ -58,7 +58,7 @@ export class StatusLabel extends React.Component {
         </OverlayTrigger>
       )
     } else {
-      return <Label bsStyle="default" style={{opacity: 0}}></Label>
+      return <Label variant="default" style={{opacity: 0}}></Label>
     }
   }
 }

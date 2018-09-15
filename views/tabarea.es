@@ -413,7 +413,7 @@ export class ControlledTabArea extends PureComponent {
     )
 
     const firstPanelNav = !this.props.doubleTabbed ? (
-      <Nav bsStyle="tabs" activeKey={this.props.activeMainTab} id="top-nav" className={navClass}
+      <Nav variant="tabs" activeKey={this.props.activeMainTab} id="top-nav" className={navClass}
         onSelect={this.handleSelectTab}>
         <NavItem key='mainView' eventKey='mainView'>
           {mainview.displayName}
@@ -433,7 +433,7 @@ export class ControlledTabArea extends PureComponent {
         </NavItem>
       </Nav>
     ) : (
-      <Nav bsStyle="tabs" activeKey={this.props.activeMainTab} onSelect={this.handleSelectTab} id='split-main-nav'>
+      <Nav variant="tabs" activeKey={this.props.activeMainTab} onSelect={this.handleSelectTab} id='split-main-nav'>
         <NavItem key='mainView' eventKey='mainView'>
           {mainview.displayName}
         </NavItem>
@@ -586,7 +586,7 @@ export class ControlledTabArea extends PureComponent {
         {
           this.props.doubleTabbed && (
             <div className="poi-tab-container no-scroll">
-              <Nav bsStyle="tabs" onSelect={this.handleSelectTab} id='split-plugin-nav' className={navClass}>
+              <Nav variant="tabs" onSelect={this.handleSelectTab} id='split-plugin-nav' className={navClass}>
                 <NavDropdown id='plugin-dropdown' pullRight onSelect={this.handleSelectDropdown}
                   title={(activePlugin || {}).displayName || defaultPluginTitle}>
                   {pluginDropdownContents}

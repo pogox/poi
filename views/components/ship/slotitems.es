@@ -142,7 +142,7 @@ export const LandbaseSlotitems = translate(['resources'])(connect(
                 {(equip.api_alv && equip.api_alv >= 1 && equip.api_alv <= 7) &&
                   <img className='alv-img' src={join('assets', 'img', 'airplane', `alv${equip.api_alv}.png`)} />
                 }
-                {isMini && <Label className={onslotClassName} bsStyle={`${onslotWarning ? 'warning' : 'default'}`}>
+                {isMini && <Label className={onslotClassName} variant={`${onslotWarning ? 'warning' : 'default'}`}>
                   {onslotText}
                 </Label>}
                 <FontAwesome name="dot-circle-o"/> {$equip.api_distance}

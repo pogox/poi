@@ -94,7 +94,7 @@ export class ExpeditionPanel extends Component {
   render() {
     const {fleetsExpedition, fleetNames, $expeditions, canNotify, notifyBefore} = this.props
     return (
-      <Panel bsStyle="default">
+      <Panel variant="default">
         <Panel.Body>
           {
             range(1, 4).map((i) => {

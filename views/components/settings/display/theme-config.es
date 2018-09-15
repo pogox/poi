@@ -85,7 +85,7 @@ export class ThemeConfig extends Component {
     return (
       <Grid>
         <Col xs={6}>
-          <FormControl componentClass="select" value={this.props.theme} onChange={this.handleSetTheme}>
+          <FormControl as="select" value={this.props.theme} onChange={this.handleSetTheme}>
             {
               this.props.themes.map((theme, index) =>
                 <option key={index} value={theme}>
@@ -96,14 +96,14 @@ export class ThemeConfig extends Component {
           </FormControl>
         </Col>
         <Col xs={6}>
-          <FormControl componentClass="select" value={this.props.vibrant} onChange={this.handleSetVibrancy}>
+          <FormControl as="select" value={this.props.vibrant} onChange={this.handleSetVibrancy}>
             <option key={0} value={0}>{t('setting:Default')}</option>
             { ['darwin', 'win32'].includes(process.platform) && <option key={1} value={1}>{t('setting:Vibrance')}</option> }
             <option key={2} value={2}>{t('setting:Custom background')}</option>
           </FormControl>
         </Col>
         <Col xs={6} style={{ marginTop: '1ex' }}>
-          <Button bsStyle='primary' onClick={this.handleOpenCustomCss} block>{t('setting:Edit custom CSS')}</Button>
+          <Button variant='primary' onClick={this.handleOpenCustomCss} block>{t('setting:Edit custom CSS')}</Button>
         </Col>
         <Col xs={6} style={{ marginTop: '1ex' }}>
           <Overlay

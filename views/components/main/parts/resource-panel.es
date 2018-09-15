@@ -102,7 +102,7 @@ export class ResourcePanel extends React.Component {
     const valid = !!admiralLv
     const limit = 750 + admiralLv * 250
     return (
-      <Panel bsStyle="default">
+      <Panel variant="default">
         <Panel.Body>
           {
             (dimension === 2 ? order : range(8)).map((i) => {

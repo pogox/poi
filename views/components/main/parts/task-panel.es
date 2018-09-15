@@ -148,7 +148,7 @@ const TaskRowBase = connect(
   leftOverlay,
   rightLabel='',
   rightOverlay,
-  rightBsStyle='success',
+  rightvariant='success',
   leftOverlayPlacement,
   colwidth,
 }) {
@@ -172,7 +172,7 @@ const TaskRowBase = connect(
             <Tooltip id={`task-progress-${idx}`} style={rightOverlay ? null : {display: 'none'}}>{rightOverlay}</Tooltip>
           }
         >
-          <Label className="quest-progress" bsStyle={rightBsStyle}>{rightLabel}</Label>
+          <Label className="quest-progress" variant={rightvariant}>{rightLabel}</Label>
         </OverlayTrigger>
       </div>
     </Col>
@@ -191,7 +191,7 @@ const TaskRow = translate(['resources'])(connect(
   const questName = quest && quest.api_title ? t(`resources:${quest.api_title}`, { context: quest.api_no && quest.api_no.toString() }) : '???'
   const questContent = translation ? translation : quest ? quest.api_detail.replace(/<br\s*\/?>/gi, '') : '...'
   const [count, required] = sumSubgoals(record)
-  const progressBsStyle = record ?
+  const progressvariant = record ?
     getStyleByPercent(count / required) :
     getStyleByProgress(quest)
   const progressLabel = record ?
@@ -207,7 +207,7 @@ const TaskRow = translate(['resources'])(connect(
       leftLabel={`${wikiIdPrefix}${questName}`}
       leftOverlay={<div><strong>{wikiIdPrefix}{questName}</strong><br />{questContent}</div>}
       rightLabel={progressLabel}
-      rightBsStyle={progressBsStyle}
+      rightvariant={progressvariant}
       rightOverlay={progressOverlay}
       colwidth={colwidth}
     />
@@ -250,7 +250,7 @@ export class TaskPanel extends React.Component {
     const { activeQuests, activeCapacity, activeNum, t} = this.props
     const colwidth = Math.floor(12 / this.state.dimension)
     return (
-      <Panel bsStyle="default">
+      <Panel variant="default">
         <Panel.Body>
           {[
             sortBy(map(values(activeQuests), 'detail'), 'api_no').map((quest, idx) =>

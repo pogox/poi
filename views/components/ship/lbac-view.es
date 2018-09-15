@@ -29,15 +29,15 @@ export const SquardRow = translate(['main'])(connect((state, { squardId }) =>
     switch (api_action_kind) {
     // 0=待機, 1=出撃, 2=防空, 3=退避, 4=休息
     case 0:
-      return <Label bsStyle='default'>{t('main:Standby')}</Label>
+      return <Label variant='default'>{t('main:Standby')}</Label>
     case 1:
-      return <Label bsStyle='danger'>{t('main:Sortie')}</Label>
+      return <Label variant='danger'>{t('main:Sortie')}</Label>
     case 2:
-      return <Label bsStyle='warning'>{t('main:Defense')}</Label>
+      return <Label variant='warning'>{t('main:Defense')}</Label>
     case 3:
-      return <Label bsStyle='primary'>{t('main:Retreat')}</Label>
+      return <Label variant='primary'>{t('main:Retreat')}</Label>
     case 4:
-      return <Label bsStyle='success'>{t('main:Rest')}</Label>
+      return <Label variant='success'>{t('main:Rest')}</Label>
     }
   })()
   const hideShipName = enableAvatar && compact
@@ -97,7 +97,7 @@ export const SquardRow = translate(['main'])(connect((state, { squardId }) =>
           </div>
         </div>
         <span className="hp-progress top-space">
-          <ProgressBar bsStyle={getHpStyle(hpPercentage)}
+          <ProgressBar variant={getHpStyle(hpPercentage)}
             now={hpPercentage} />
         </span>
       </div>

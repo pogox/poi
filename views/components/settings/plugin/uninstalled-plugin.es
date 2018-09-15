@@ -46,7 +46,7 @@ export class UninstalledPlugin extends PureComponent {
                         {installButtonText}
                       </Tooltip>
                     }>
-                      <Button bsStyle='primary'
+                      <Button variant='primary'
                         disabled={this.props.npmWorking}
                         onClick={this.props.handleInstall}
                         className='plugin-control-button btn-xs-12'>

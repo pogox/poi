@@ -320,22 +320,22 @@ export class PluginConfig extends Component {
     const mirrors = PluginManager.getMirrors()
     const updateStatusFAname = this.state.updatingAll ? 'spinner' : 'cloud-download'
     const installStatusFAname = this.state.installingAll ? 'spinner' : 'download'
-    let installStatusbsStyle, installStatusText
+    let installStatusvariant, installStatusText
     switch (this.state.manuallyInstallStatus) {
     case 1:
-      installStatusbsStyle = 'info'
+      installStatusvariant = 'info'
       installStatusText = <>{t('setting:Installing')}...</>
       break
     case 2:
-      installStatusbsStyle = 'success'
+      installStatusvariant = 'success'
       installStatusText = t('setting:Plugins are installed successfully')
       break
     case 3:
-      installStatusbsStyle = 'danger'
+      installStatusvariant = 'danger'
       installStatusText = t('setting:InstallFailedMsg')
       break
     default:
-      installStatusbsStyle = 'warning'
+      installStatusvariant = 'warning'
       installStatusText = ''
     }
     const advanceFAname = this.state.advanced ? 'angle-up' : 'angle-down'
@@ -353,7 +353,7 @@ export class PluginConfig extends Component {
             <Col xs={12}>
               {
                 window.isSafeMode &&
-                <Panel header={t('setting:Safe Mode')} bsStyle='warning'>
+                <Panel header={t('setting:Safe Mode')} variant='warning'>
                   <Panel.Body>{t('setting:Poi is running in safe mode, plugins are not enabled automatically')}</Panel.Body>
                 </Panel>
               }
@@ -514,7 +514,7 @@ export class PluginConfig extends Component {
           <Row className='plugin-rowspace'>
             <Collapse in={this.state.manuallyInstallStatus > 0}>
               <Col xs={12}>
-                <Alert bsStyle={installStatusbsStyle}>
+                <Alert variant={installStatusvariant}>
                   {installStatusText}
                 </Alert>
               </Col>

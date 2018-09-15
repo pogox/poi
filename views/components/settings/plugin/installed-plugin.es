@@ -26,7 +26,7 @@ export class InstalledPlugin extends PureComponent {
   }
   render() {
     const plugin = this.props.plugin
-    const outdatedLabelbsStyle = (!plugin.latestVersion.includes('beta')) ? 'primary' : 'warning'
+    const outdatedLabelvariant = (!plugin.latestVersion.includes('beta')) ? 'primary' : 'warning'
     const outdatedLabelFAname = classnames({
       'spinner': plugin.isUpdating,
       'cloud-download': !plugin.isUpdating && plugin.isOutdated,
@@ -91,7 +91,7 @@ export class InstalledPlugin extends PureComponent {
                   </div>
                   <div className='update-wrapper'>
                     <div>
-                      <Label bsStyle={outdatedLabelbsStyle}
+                      <Label variant={outdatedLabelvariant}
                         className={outdatedLabelClass}
                         onClick={this.props.handleUpdate}>
                         <FontAwesome name={outdatedLabelFAname}
@@ -122,7 +122,7 @@ export class InstalledPlugin extends PureComponent {
                           </Tooltip>
                         }>
                           <Button
-                            bsStyle='primary' bsSize='xs'
+                            variant='primary' bsSize='xs'
                             onClick={this.toggleSettingPop}
                             className='plugin-control-button btn-xs-4'>
                             <FontAwesome name='gear' />
@@ -135,7 +135,7 @@ export class InstalledPlugin extends PureComponent {
                         {enableBtnText}
                       </Tooltip>
                     }>
-                      <Button bsStyle='info'
+                      <Button variant='info'
                         disabled={PluginManager.getStatusOfPlugin(plugin) == PluginManager.NEEDUPDATE}
                         onClick={this.props.handleEnable}
                         className={btnClass}>
@@ -147,7 +147,7 @@ export class InstalledPlugin extends PureComponent {
                         {removeBtnText}
                       </Tooltip>
                     }>
-                      <Button bsStyle='danger'
+                      <Button variant='danger'
                         onClick={this.props.handleRemove}
                         disabled={!plugin.isInstalled}
                         className={btnClass}>

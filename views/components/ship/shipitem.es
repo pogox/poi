@@ -170,7 +170,7 @@ export class ShipRow extends Component {
               </div>
             </div>
             <span className="hp-progress top-space" style={labelStatusStyle}>
-              <ProgressBar bsStyle={getHpStyle(hpPercentage)}
+              <ProgressBar variant={getHpStyle(hpPercentage)}
                 now={hpPercentage} />
             </span>
           </div>
@@ -182,7 +182,7 @@ export class ShipRow extends Component {
                 {fuelTip}
               </Tooltip>
             }>
-              <ProgressBar bsStyle={getMaterialStyle(fuelPercentage)}
+              <ProgressBar variant={getMaterialStyle(fuelPercentage)}
                 now={fuelPercentage} />
             </OverlayTrigger>
           </span>
@@ -192,7 +192,7 @@ export class ShipRow extends Component {
                 {ammoTip}
               </Tooltip>
             }>
-              <ProgressBar bsStyle={getMaterialStyle(ammoPercentage)}
+              <ProgressBar variant={getMaterialStyle(ammoPercentage)}
                 now={ammoPercentage} />
             </OverlayTrigger>
           </span>

@@ -45,7 +45,7 @@ const ShipViewSwitchButton = connect(
 )(({fleetId, activeFleetId, fleetState, onClick, disabled}) =>
   <Button
     bsSize="xsmall"
-    bsStyle={getStyle(fleetState, disabled)}
+    variant={getStyle(fleetState, disabled)}
     onClick={onClick}
     disabled={disabled}
     className={fleetId == activeFleetId ? 'active' : ''}
@@ -104,7 +104,7 @@ export class MiniShip extends Component {
   render() {
     return (
       <div style={{height: '100%'}} onDoubleClick={this.changeShipView}>
-        <Panel id="ShipViewMini" className="ship-view-mini" bsStyle="default">
+        <Panel id="ShipViewMini" className="ship-view-mini" variant="default">
           <Panel.Body>
             <div className="panel-row miniship-fleet-btn">
               <ButtonGroup bsSize="xsmall">

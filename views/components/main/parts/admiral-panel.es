@@ -186,7 +186,7 @@ class CountDownControl extends Component {
             </Tooltip>
           }
         >
-          <Label bsStyle={style}><FontAwesome name="calendar" /></Label>
+          <Label variant={style}><FontAwesome name="calendar" /></Label>
         </OverlayTrigger>
       </span>
     )
@@ -249,7 +249,7 @@ export const AdmiralPanel = translate(['main'])(connect(
   const slotNumClass = (slotNumCheck && maxSlotitem - equipNum < minSlotNum) ? 'alert alert-warning' : ''
 
   return (
-    <Panel bsStyle="default">
+    <Panel variant="default">
       <Panel.Body>
         <OverlayTrigger placement="bottom" overlay={<Tooltip id="teitoku-exp" className='info-tooltip'><ExpContent/></Tooltip>}>
           {

@@ -49,7 +49,7 @@ class BasicAuth extends PureComponent {
         <Modal.Body>
           <Form horizontal>
             <FormGroup controlId="formHorizontalEmail">
-              <Col componentClass={ControlLabel} sm={2}>
+              <Col as={ControlLabel} sm={2}>
                 {t('Username')}
               </Col>
               <Col sm={10}>
@@ -58,7 +58,7 @@ class BasicAuth extends PureComponent {
             </FormGroup>
 
             <FormGroup controlId="formHorizontalPassword">
-              <Col componentClass={ControlLabel} sm={2}>
+              <Col as={ControlLabel} sm={2}>
                 {t('Password')}
               </Col>
               <Col sm={10}>
@@ -69,7 +69,7 @@ class BasicAuth extends PureComponent {
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={this.close}>{t('Cancel')}</Button>
-          <Button bsStyle="primary" onClick={this.login}>{t('Confirm')}</Button>
+          <Button variant="primary" onClick={this.login}>{t('Confirm')}</Button>
         </Modal.Footer>
       </Modal>
     )

@@ -70,7 +70,7 @@ export class AppMetrics extends PureComponent {
     const { metrics, active, total, pidmap } = this.state
     return (
       <>
-        <Button onClick={this.handleClick} bsStyle={active ? 'success' : 'default'}>
+        <Button onClick={this.handleClick} variant={active ? 'success' : 'default'}>
           {
             active
               ? <span>{t('setting:Monitor on')}</span>

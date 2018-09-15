@@ -45,12 +45,12 @@ export class PluginWrap extends Component {
           <h1>{t('PluginErrTitle', { name: plugin.name })}</h1>
           <p>{t('PluginErrorMsg')}</p>
           <FormControl
-            componentClass="textarea"
+            as="textarea"
             readOnly
             value={code}
             style={{ height: '10em' }}
           />
-          <Button bsStyle="primary" onClick={this.handleCopy}>{t('Copy to clipboard')}</Button>
+          <Button variant="primary" onClick={this.handleCopy}>{t('Copy to clipboard')}</Button>
         </>
       )
       return withContainer ? (

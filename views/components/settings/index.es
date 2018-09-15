@@ -18,7 +18,7 @@ export class reactClass extends React.Component {
   render() {
     const { t } = this.props
     return (
-      <Tabs bsStyle="pills" defaultActiveKey={0} animation={false} justified id="settings-view-tabs">
+      <Tabs variant="pills" defaultActiveKey={0} animation={false} justified id="settings-view-tabs">
         <Tab eventKey={0} title={t('setting:Common')} className='poi-settings-Tab'>
           <PoiConfig />
         </Tab>
