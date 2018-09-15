@@ -5,7 +5,7 @@ import shallowEqual from 'fbjs/lib/shallowEqual'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { createSelector } from 'reselect'
-import { ProgressBar, OverlayTrigger, Tooltip, Label } from 'react-bootstrap'
+import { ProgressBar, OverlayTrigger, Tooltip, Badge } from 'react-bootstrap'
 import { isEqual, pick, omit, memoize, get } from 'lodash'
 import FontAwesome from 'react-fontawesome'
 import { translate } from 'react-i18next'
@@ -74,13 +74,13 @@ const Slotitems = translate(['resources'])(connect(
                   proficiency &&
                   <img className='alv-img' src={join('assets', 'img', 'airplane', `alv${proficiency}.png`)} />
                 }
-                <Label
+                <Badge
                   className={onslotClassName}
                   variant={`${onslotWarning ? 'warning' : 'default'}`}
                   style={{ width: '3em' }}
                 >
                   {onslotText}
-                </Label>
+                </Badge>
               </div>
             )
           })
@@ -246,15 +246,15 @@ export const MiniSquardRow = translate(['main'])(connect((state, { squardId }) =
     switch (api_action_kind) {
     // 0=待機, 1=出撃, 2=防空, 3=退避, 4=休息
     case 0:
-      return <Label variant='default'>{t('main:Standby')}</Label>
+      return <Badge variant='default'>{t('main:Standby')}</Badge>
     case 1:
-      return <Label variant='danger'>{t('main:Sortie')}</Label>
+      return <Badge variant='danger'>{t('main:Sortie')}</Badge>
     case 2:
-      return <Label variant='warning'>{t('main:Defense')}</Label>
+      return <Badge variant='warning'>{t('main:Defense')}</Badge>
     case 3:
-      return <Label variant='primary'>{t('main:Retreat')}</Label>
+      return <Badge variant='primary'>{t('main:Retreat')}</Badge>
     case 4:
-      return <Label variant='success'>{t('main:Rest')}</Label>
+      return <Badge variant='success'>{t('main:Rest')}</Badge>
     }
   })()
   const shipInfoClass = classNames("ship-info", {

@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
 import { memoize, get } from 'lodash'
-import { OverlayTrigger, Tooltip, Label } from 'react-bootstrap'
+import { OverlayTrigger, Tooltip, Badge } from 'react-bootstrap'
 import { translate, Trans } from 'react-i18next'
 import i18next from 'views/env-parts/i18next'
 
@@ -74,7 +74,7 @@ export const AACIIndicator = translate(['main'])(connect(
     AACIs.length ?
       <span className="ship-aaci">
         <OverlayTrigger placement="top" overlay={<Tooltip className="info-tooltip" id={`aaci-info-${shipId}`}>{tooltip}</Tooltip>}>
-          <Label variant='warning'>{t('main:AACI')}</Label>
+          <Badge variant='warning'>{t('main:AACI')}</Badge>
         </OverlayTrigger>
       </span>
       : <span />

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Label, ProgressBar, OverlayTrigger, Tooltip } from 'react-bootstrap'
+import { Badge, ProgressBar, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { createSelector } from 'reselect'
 import { getHpStyle, getTyku } from 'views/utils/game-utils'
 import { LandbaseSlotitems } from './slotitems'
@@ -29,15 +29,15 @@ export const SquardRow = translate(['main'])(connect((state, { squardId }) =>
     switch (api_action_kind) {
     // 0=待機, 1=出撃, 2=防空, 3=退避, 4=休息
     case 0:
-      return <Label variant='default'>{t('main:Standby')}</Label>
+      return <Badge variant='default'>{t('main:Standby')}</Badge>
     case 1:
-      return <Label variant='danger'>{t('main:Sortie')}</Label>
+      return <Badge variant='danger'>{t('main:Sortie')}</Badge>
     case 2:
-      return <Label variant='warning'>{t('main:Defense')}</Label>
+      return <Badge variant='warning'>{t('main:Defense')}</Badge>
     case 3:
-      return <Label variant='primary'>{t('main:Retreat')}</Label>
+      return <Badge variant='primary'>{t('main:Retreat')}</Badge>
     case 4:
-      return <Label variant='success'>{t('main:Rest')}</Label>
+      return <Badge variant='success'>{t('main:Rest')}</Badge>
     }
   })()
   const hideShipName = enableAvatar && compact

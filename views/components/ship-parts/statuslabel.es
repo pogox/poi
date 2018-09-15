@@ -1,6 +1,6 @@
 import React from 'react'
 import FontAwesome from 'react-fontawesome'
-import { OverlayTrigger, Tooltip, Label } from 'react-bootstrap'
+import { OverlayTrigger, Tooltip, Badge } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { isEqual, get } from 'lodash'
 import { translate } from 'react-i18next'
@@ -49,16 +49,16 @@ export class StatusLabel extends React.Component {
             }
           </Tooltip>
         }>
-          <Label
+          <Badge
             variant={styles[i] || 'default'}
             style={i > 2 ? {color: color[i - 3] || '' } : {} }
           >
             <FontAwesome key={0} name={icons[i] || 'tag'} />
-          </Label>
+          </Badge>
         </OverlayTrigger>
       )
     } else {
-      return <Label variant="default" style={{opacity: 0}}></Label>
+      return <Badge variant="default" style={{opacity: 0}}></Badge>
     }
   }
 }

@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { connect } from 'react-redux'
 import React, { Fragment } from 'react'
 import { createSelector } from 'reselect'
-import { OverlayTrigger, Tooltip, Label } from 'react-bootstrap'
+import { OverlayTrigger, Tooltip, Badge } from 'react-bootstrap'
 import { memoize } from 'lodash'
 import FontAwesome from 'react-fontawesome'
 import { translate } from 'react-i18next'
@@ -142,9 +142,9 @@ export const LandbaseSlotitems = translate(['resources'])(connect(
                 {(equip.api_alv && equip.api_alv >= 1 && equip.api_alv <= 7) &&
                   <img className='alv-img' src={join('assets', 'img', 'airplane', `alv${equip.api_alv}.png`)} />
                 }
-                {isMini && <Label className={onslotClassName} variant={`${onslotWarning ? 'warning' : 'default'}`}>
+                {isMini && <Badge className={onslotClassName} variant={`${onslotWarning ? 'warning' : 'default'}`}>
                   {onslotText}
-                </Label>}
+                </Badge>}
                 <FontAwesome name="dot-circle-o"/> {$equip.api_distance}
               </div>
               {$equip &&

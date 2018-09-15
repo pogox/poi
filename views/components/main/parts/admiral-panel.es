@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Panel, OverlayTrigger, Tooltip, Label } from 'react-bootstrap'
+import { Panel, OverlayTrigger, Tooltip, Badge } from 'react-bootstrap'
 import { createSelector } from 'reselect'
 import { get, map } from 'lodash'
 import moment from 'moment-timezone'
@@ -186,7 +186,7 @@ class CountDownControl extends Component {
             </Tooltip>
           }
         >
-          <Label variant={style}><FontAwesome name="calendar" /></Label>
+          <Badge variant={style}><FontAwesome name="calendar" /></Badge>
         </OverlayTrigger>
       </span>
     )

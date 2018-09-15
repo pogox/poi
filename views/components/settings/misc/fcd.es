@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Label } from 'react-bootstrap'
+import { Button, Badge } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { get } from 'lodash'
 import { sync as globSync } from 'glob'
@@ -121,7 +121,7 @@ export class FCD extends Component {
           fcds.map(fcd => (
             fcd
               ? <span key={fcd[0]} className="data-version">
-                {fcd[0]}: <Label variant="primary">{fcd[1]}</Label>
+                {fcd[0]}: <Badge variant="primary">{fcd[1]}</Badge>
               </span>
               : null
           ))

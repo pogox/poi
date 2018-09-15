@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
 import { memoize } from 'lodash'
-import { OverlayTrigger, Tooltip, Label } from 'react-bootstrap'
+import { OverlayTrigger, Tooltip, Badge } from 'react-bootstrap'
 import { translate } from 'react-i18next'
 
 import { shipDataSelectorFactory, shipEquipDataSelectorFactory } from 'views/utils/selectors'
@@ -31,7 +31,7 @@ export const AAPBIndicator = translate(['main'])(connect(
     AAPB > 0 ?
       <span className="ship-aapb">
         <OverlayTrigger placement="top" overlay={<Tooltip className="info-tooltip" id={`aapb-info-${shipId}`}>{tooltip}</Tooltip>}>
-          <Label variant='warning'>{t('main:AAPB')}</Label>
+          <Badge variant='warning'>{t('main:AAPB')}</Badge>
         </OverlayTrigger>
       </span>
       : <span />

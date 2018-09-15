@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Label } from 'react-bootstrap'
+import { Badge } from 'react-bootstrap'
 
 import { resolveTime } from 'views/utils/tools'
 import { CountdownNotifier } from 'views/utils/notifiers'
@@ -170,7 +170,7 @@ class CountdownNotifierLabelInner extends Component {
   }
   render() {
     return (
-      <Label className="countdown-timer-label" variant={this.state.style}>
+      <Badge className="countdown-timer-label" variant={this.state.style}>
         {
           this.props.completeTime >= 0 &&
           <CountdownTimerInner countdownId={this.props.timerKey}
@@ -178,7 +178,7 @@ class CountdownNotifierLabelInner extends Component {
             tickCallback={this.tick}
             resolveTime={this.props.resolveTime} />
         }
-      </Label>
+      </Badge>
     )
   }
 }

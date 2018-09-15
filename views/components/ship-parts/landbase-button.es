@@ -1,18 +1,18 @@
 import { connect } from 'react-redux'
 import React from 'react'
-import { Button, Label, Tooltip, OverlayTrigger } from 'react-bootstrap'
+import { Button, Badge, Tooltip, OverlayTrigger } from 'react-bootstrap'
 import FontAwesome from 'react-fontawesome'
 import { get } from 'lodash'
 import { translate, Trans } from 'react-i18next'
 
 import './assets/landbase-button.css'
 
-const fatiguedLabel = <Label variant='danger' className='airbase-state-label'><Trans>main:Fatigued</Trans></Label>
-const emptyLabel = <Label variant='warning' className='airbase-state-label'><Trans>main:Empty Slot</Trans></Label>
-const relocateLabel = <Label variant='warning' className='airbase-state-label'><Trans>main:Relocating</Trans></Label>
-const resupplyLabel = <Label variant='warning' className='airbase-state-label'><Trans>main:Resupply Needed</Trans></Label>
-const noActionLabel = <Label variant='warning' className='airbase-state-label'><Trans>main:No Action</Trans></Label>
-const readyLabel = <Label variant='success' className='airbase-state-label'><Trans>main:Ready</Trans></Label>
+const fatiguedLabel = <Badge variant='danger' className='airbase-state-label'><Trans>main:Fatigued</Trans></Badge>
+const emptyLabel = <Badge variant='warning' className='airbase-state-label'><Trans>main:Empty Slot</Trans></Badge>
+const relocateLabel = <Badge variant='warning' className='airbase-state-label'><Trans>main:Relocating</Trans></Badge>
+const resupplyLabel = <Badge variant='warning' className='airbase-state-label'><Trans>main:Resupply Needed</Trans></Badge>
+const noActionLabel = <Badge variant='warning' className='airbase-state-label'><Trans>main:No Action</Trans></Badge>
+const readyLabel = <Badge variant='success' className='airbase-state-label'><Trans>main:Ready</Trans></Badge>
 
 export const LandbaseButton = translate(['resources'])(connect(state => ({
   sortieStatus: get(state, 'sortie.sortieStatus', []),

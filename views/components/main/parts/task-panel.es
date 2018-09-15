@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { get, map, range, forEach, values, sortBy } from 'lodash'
-import { Panel, Label, OverlayTrigger, Tooltip, Col } from 'react-bootstrap'
+import { Panel, Badge, OverlayTrigger, Tooltip, Col } from 'react-bootstrap'
 import { createSelector } from 'reselect'
 import React from 'react'
 import { translate, Trans } from 'react-i18next'
@@ -172,7 +172,7 @@ const TaskRowBase = connect(
             <Tooltip id={`task-progress-${idx}`} style={rightOverlay ? null : {display: 'none'}}>{rightOverlay}</Tooltip>
           }
         >
-          <Label className="quest-progress" variant={rightvariant}>{rightLabel}</Label>
+          <Badge className="quest-progress" variant={rightvariant}>{rightLabel}</Badge>
         </OverlayTrigger>
       </div>
     </Col>

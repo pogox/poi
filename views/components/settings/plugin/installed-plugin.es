@@ -2,7 +2,7 @@ import classnames from 'classnames'
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import FontAwesome from 'react-fontawesome'
-import { Col, Row, Button, ButtonGroup, Label, Collapse, Well, OverlayTrigger, Tooltip, Panel } from 'react-bootstrap'
+import { Col, Row, Button, ButtonGroup, Badge, Collapse, Well, OverlayTrigger, Tooltip, Panel } from 'react-bootstrap'
 import ReactMarkdown from 'react-remarkable'
 import { Trans } from 'react-i18next'
 
@@ -91,13 +91,13 @@ export class InstalledPlugin extends PureComponent {
                   </div>
                   <div className='update-wrapper'>
                     <div>
-                      <Label variant={outdatedLabelvariant}
+                      <Badge variant={outdatedLabelvariant}
                         className={outdatedLabelClass}
                         onClick={this.props.handleUpdate}>
                         <FontAwesome name={outdatedLabelFAname}
                           pulse={plugin.isUpdating}/>
                         {outdatedLabelText}
-                      </Label>
+                      </Badge>
                     </div>
                     <div>
                       <span>

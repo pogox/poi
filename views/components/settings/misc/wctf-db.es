@@ -6,7 +6,7 @@ import fs from 'fs-extra'
 import glob from 'glob'
 import Promise from 'bluebird'
 import FA from 'react-fontawesome'
-import { Button, Label } from 'react-bootstrap'
+import { Button, Badge } from 'react-bootstrap'
 import { Trans } from 'react-i18next'
 
 import { wctfSelector } from 'views/utils/selectors'
@@ -193,7 +193,7 @@ export class WctfDB extends Component {
         >
           <FA name="refresh" spin={updating} />
         </Button>
-        <Trans>setting:Who Calls The Fleet Database</Trans>: <Label variant="primary">{this.props.version}</Label>
+        <Trans>setting:Who Calls The Fleet Database</Trans>: <Badge variant="primary">{this.props.version}</Badge>
       </>
     )
   }

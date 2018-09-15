@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
 import { memoize } from 'lodash'
-import { Label } from 'react-bootstrap'
+import { Badge } from 'react-bootstrap'
 
 import {
   shipDataSelectorFactory, shipEquipDataSelectorFactory,
@@ -37,7 +37,7 @@ export const OASWIndicator = translate(['main'])(connect(
 )(({ isOASW, shipId, t }) => (
   isOASW ?
     <span className="ship-oasw">
-      <Label variant='primary'>{t('main:OASW')}</Label>
+      <Badge variant='primary'>{t('main:OASW')}</Badge>
     </span>
     : <span />
 )))
