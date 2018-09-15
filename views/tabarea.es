@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import React, { Component, Children, PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import FontAwesome from 'react-fontawesome'
-import { Nav, NavItem, NavDropdown, Dropdown } from 'react-bootstrap'
+import { Nav, NavDropdown, Dropdown } from 'react-bootstrap'
 import { isEqual, omit, get } from 'lodash'
 import { ResizableArea } from 'react-resizable-area'
 import shallowEqual from 'fbjs/lib/shallowEqual'
@@ -415,34 +415,48 @@ export class ControlledTabArea extends PureComponent {
     const firstPanelNav = !this.props.doubleTabbed ? (
       <Nav variant="tabs" activeKey={this.props.activeMainTab} id="top-nav" className={navClass}
         onSelect={this.handleSelectTab}>
-        <NavItem key='mainView' eventKey='mainView'>
-          {mainview.displayName}
-        </NavItem>
-        <NavItem key='shipView' eventKey='shipView'>
-          {shipview.displayName}
-        </NavItem>
-        <NavItem key='plugin' eventKey={activePluginName} onSelect={this.handleSelect}>
-          {(activePlugin || {}).displayName || defaultPluginTitle}
-        </NavItem>
-        <NavDropdown id='plugin-dropdown' pullRight title=' '
+        <Nav.Item key="mainView">
+          <Nav.Link eventKey="mainView">
+            {mainview.displayName}
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item key="shipView">
+          <Nav.Link eventKey="shipView">
+            {shipview.displayName}
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item key="plugin">
+          <Nav.Link eventKey={activePluginName} onSelect={this.handleSelect}>
+            {(activePlugin || {}).displayName || defaultPluginTitle}
+          </Nav.Link>
+        </Nav.Item>
+        <NavDropdown id="plugin-dropdown" pullRight title=" "
           onSelect={this.handleSelectDropdown}>
           {pluginDropdownContents}
         </NavDropdown>
-        <NavItem key='settings' eventKey='settings' className="tab-narrow">
-          <FontAwesome key={0} name='cog' />
-        </NavItem>
+        <Nav.Item key="settings" className="tab-narrow">
+          <Nav.Link eventKey="settings">
+            <FontAwesome key={0} name="cog" />
+          </Nav.Link>
+        </Nav.Item>
       </Nav>
     ) : (
-      <Nav variant="tabs" activeKey={this.props.activeMainTab} onSelect={this.handleSelectTab} id='split-main-nav'>
-        <NavItem key='mainView' eventKey='mainView'>
-          {mainview.displayName}
-        </NavItem>
-        <NavItem key='shipView' eventKey='shipView'>
-          {shipview.displayName}
-        </NavItem>
-        <NavItem key='settings' eventKey='settings'>
-          {settings.displayName}
-        </NavItem>
+      <Nav variant="tabs" activeKey={this.props.activeMainTab} onSelect={this.handleSelectTab} id="split-main-nav">
+        <Nav.Item key="mainView">
+          <Nav.Link key="mainView" eventKey="mainView">
+            {mainview.displayName}
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item key="shipView">
+          <Nav.Link key="shipView" eventKey="shipView">
+            {shipview.displayName}
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item key="settings">
+          <Nav.Link key="settings" eventKey="settings">
+            {settings.displayName}
+          </Nav.Link>
+        </Nav.Item>
       </Nav>
     )
 
@@ -456,14 +470,14 @@ export class ControlledTabArea extends PureComponent {
           }
         }}
         activeTab={this.props.activeMainTab}>
-        <div id={mainview.name} className="MainView poi-app-tabpane" key='mainView'>
+        <div id={mainview.name} className="MainView poi-app-tabpane" key="mainView">
           <mainview.reactClass activeMainTab={this.props.activeMainTab} />
         </div>
-        <div id={shipview.name} className="ShipView poi-app-tabpane" key='shipView'>
+        <div id={shipview.name} className="ShipView poi-app-tabpane" key="shipView">
           <shipview.reactClass activeMainTab={this.props.activeMainTab} />
         </div>
         { pluginContents }
-        <div id={settings.name} className="SettingsView poi-app-tabpane" key='settings'>
+        <div id={settings.name} className="SettingsView poi-app-tabpane" key="settings">
           <settings.reactClass activeMainTab={this.props.activeMainTab}/>
         </div>
       </TabContentsUnion>
@@ -477,13 +491,13 @@ export class ControlledTabArea extends PureComponent {
           }
         }}
         activeTab={this.props.activeMainTab}>
-        <div id={mainview.name} className="MainView poi-app-tabpane" key='mainView'>
+        <div id={mainview.name} className="MainView poi-app-tabpane" key="mainView">
           <mainview.reactClass activeMainTab={this.props.activeMainTab} />
         </div>
-        <div id={shipview.name} className="ShipView poi-app-tabpane" key='shipView'>
+        <div id={shipview.name} className="ShipView poi-app-tabpane" key="shipView">
           <shipview.reactClass activeMainTab={this.props.activeMainTab} />
         </div>
-        <div id={settings.name} className="SettingsView poi-app-tabpane" key='settings'>
+        <div id={settings.name} className="SettingsView poi-app-tabpane" key="settings">
           <settings.reactClass activeMainTab={this.props.activeMainTab}/>
         </div>
       </TabContentsUnion>
