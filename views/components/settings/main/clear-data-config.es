@@ -74,7 +74,9 @@ export class ClearDataConfig extends Component {
                 disabled
                 value={Math.round(this.state.cacheSize / 1048576)}
                 className='' />
-              <InputGroup.Addon>MB</InputGroup.Addon>
+              <InputGroup.Append>
+                <InputGroup.Text>MB</InputGroup.Text>
+              </InputGroup.Append>
             </InputGroup>
           </FormGroup>
         </Col>
@@ -86,7 +88,9 @@ export class ClearDataConfig extends Component {
                 onChange={this.handleValueChange}
                 value={this.props.cacheSize}
                 className='' />
-              <InputGroup.Addon>MB</InputGroup.Addon>
+              <InputGroup.Append>
+                <InputGroup.Text>MB</InputGroup.Text>
+              </InputGroup.Append>
             </InputGroup>
           </FormGroup>
         </Col>

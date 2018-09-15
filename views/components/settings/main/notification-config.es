@@ -158,7 +158,9 @@ export class NotificationConfig extends Component {
                         value={this.state.expeditionValue}
                         onClick={this.selectInput.bind(this, "expeditionValue")}
                         className='notif-input' />
-                      <InputGroup.Addon>S</InputGroup.Addon>
+                      <InputGroup.Append>
+                        <InputGroup.Text>S</InputGroup.Text>
+                      </InputGroup.Append>
                     </InputGroup>
                   </FormGroup>
                 </Col>
