@@ -10,7 +10,7 @@ import {
   FormControl,
   FormGroup,
   InputGroup,
-  ControlLabel,
+  Form,
   Alert,
 } from 'react-bootstrap'
 import { translate } from 'react-i18next'
@@ -65,7 +65,7 @@ export class ClearDataConfig extends Component {
       <Container>
         <Col xs={6}>
           <FormGroup>
-            <ControlLabel>{t('setting:Current cache size')}</ControlLabel>
+            <Form.Label>{t('setting:Current cache size')}</Form.Label>
             <InputGroup>
               <InputGroup.Button>
                 <Button onClick={this.handleUpdateCacheSize}>{t('setting:Update')}</Button>
@@ -80,7 +80,7 @@ export class ClearDataConfig extends Component {
         </Col>
         <Col xs={6}>
           <FormGroup>
-            <ControlLabel>{t('setting:Maximum cache size')}</ControlLabel>
+            <Form.Label>{t('setting:Maximum cache size')}</Form.Label>
             <InputGroup>
               <FormControl type="number"
                 onChange={this.handleValueChange}

@@ -1,4 +1,4 @@
-import { FormControl, FormGroup, ControlLabel, Form, Container, Col, Button, Alert, Collapse } from 'react-bootstrap'
+import { FormControl, FormGroup, Form, Container, Col, Button, Alert, Collapse } from 'react-bootstrap'
 import FontAwesome from 'react-fontawesome'
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
@@ -163,13 +163,13 @@ export class NetworkConfig extends Component {
             <Container>
               <Col xs={6}>
                 <FormGroup>
-                  <ControlLabel>{t('setting:Proxy server address')}</ControlLabel>
+                  <Form.Label>{t('setting:Proxy server address')}</Form.Label>
                   <FormControl type="text" placeholder={t('setting:Proxy server address')} value={this.state.http.host} onChange={this.handleHttpHostChange} />
                 </FormGroup>
               </Col>
               <Col xs={6}>
                 <FormGroup>
-                  <ControlLabel>{t('setting:Proxy server port')}</ControlLabel>
+                  <Form.Label>{t('setting:Proxy server port')}</Form.Label>
                   <FormControl type="text" placeholder={t('setting:Proxy server port')} value={this.state.http.port} onChange={this.handleHttpPortChange} />
                 </FormGroup>
               </Col>
@@ -181,13 +181,13 @@ export class NetworkConfig extends Component {
               <div style={(!this.state.http.requirePassword) ? {display: 'none'} : {}} >
                 <Col xs={6}>
                   <FormGroup>
-                    <ControlLabel>{t('setting:Username')}</ControlLabel>
+                    <Form.Label>{t('setting:Username')}</Form.Label>
                     <FormControl type="text" placeholder={t('setting:Username')} value={this.state.http.username} onChange={this.handleHttpUsernameChange} />
                   </FormGroup>
                 </Col>
                 <Col xs={6}>
                   <FormGroup>
-                    <ControlLabel>{t('setting:Password')}</ControlLabel>
+                    <Form.Label>{t('setting:Password')}</Form.Label>
                     <FormControl type="password" placeholder={t('setting:Password')} value={this.state.http.password} onChange={this.handleHttpPasswordChange} />
                   </FormGroup>
                 </Col>
@@ -198,13 +198,13 @@ export class NetworkConfig extends Component {
               <Container>
                 <Col xs={6}>
                   <FormGroup>
-                    <ControlLabel>{t('setting:Proxy server address')}</ControlLabel>
+                    <Form.Label>{t('setting:Proxy server address')}</Form.Label>
                     <FormControl type="text" placeholder={t('setting:Proxy server address')} value={this.state.socks5.host} onChange={this.handleSocksHostChange} />
                   </FormGroup>
                 </Col>
                 <Col xs={6}>
                   <FormGroup>
-                    <ControlLabel>{t('setting:Proxy server port')}</ControlLabel>
+                    <Form.Label>{t('setting:Proxy server port')}</Form.Label>
                     <FormControl type="text" placeholder={t('setting:Proxy server port')} value={this.state.socks5.port} onChange={this.handleSocksPortChange} />
                   </FormGroup>
                 </Col>
@@ -213,7 +213,7 @@ export class NetworkConfig extends Component {
                 <Container>
                   <Col xs={12}>
                     <FormGroup>
-                      <ControlLabel>{t('setting:PAC address')}</ControlLabel>
+                      <Form.Label>{t('setting:PAC address')}</Form.Label>
                       <FormControl type="text" placeholder={t('setting:PAC address')} value={this.state.pacAddr} onChange={this.handlePACAddrChange} />
                     </FormGroup>
                   </Col>
@@ -246,7 +246,7 @@ export class NetworkConfig extends Component {
           <Collapse in={this.state.showAdvanced}>
             <div>
               <Col xs={12}>
-                <ControlLabel>{t('setting:poi port')}</ControlLabel>
+                <Form.Label>{t('setting:poi port')}</Form.Label>
                 <FormControl type="number" value={this.state.port} onChange={this.handleSetPort} placeholder={t('setting:PoiDefaultPort')} />
               </Col>
               <Col xs={12}>

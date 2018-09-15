@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { FormControl, ControlLabel, InputGroup, FormGroup, Button } from 'react-bootstrap'
+import { FormControl, Form, InputGroup, FormGroup, Button } from 'react-bootstrap'
 import { trim, last } from 'lodash'
 import npa from 'npm-package-arg'
 import { translate } from 'react-i18next'
@@ -45,7 +45,7 @@ export class NameInput extends PureComponent {
     const validPackageName = validate(packageName)
     return (
       <FormGroup>
-        <ControlLabel>{t('setting:Install directly from npm')}</ControlLabel>
+        <Form.Label>{t('setting:Install directly from npm')}</Form.Label>
         <InputGroup bsSize='small'>
           <FormControl type="text"
             value={packageName}

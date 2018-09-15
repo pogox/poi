@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Button, FormControl, FormGroup, InputGroup, ControlLabel, Collapse, Card } from 'react-bootstrap'
+import { Button, FormControl, FormGroup, InputGroup, Form, Collapse, Card } from 'react-bootstrap'
 import { get } from 'lodash'
 import { translate } from 'react-i18next'
 
@@ -93,7 +93,7 @@ export class SlotCheckConfig extends Component {
           <Collapse in={this.state.showInput}>
             <Card>
               <FormGroup>
-                <ControlLabel>{t(`setting:Warn if the number of free ${this.props.type} slots is less than`)}</ControlLabel>
+                <Form.Label>{t(`setting:Warn if the number of free ${this.props.type} slots is less than`)}</Form.Label>
                 <InputGroup bsSize='small'>
                   <FormControl type="text"
                     variant={inputValid ? 'success' : 'error'}

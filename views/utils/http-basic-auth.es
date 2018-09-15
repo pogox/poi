@@ -1,6 +1,6 @@
 import { ipcRenderer } from 'electron'
 import React, { PureComponent } from 'react'
-import { Modal, Form, FormGroup, Col, ControlLabel, FormControl, Button } from 'react-bootstrap'
+import { Modal, Form, FormGroup, Col, FormControl, Button } from 'react-bootstrap'
 import { translate } from 'react-i18next'
 
 const BALogin = (usr,pwd) => {
@@ -49,7 +49,7 @@ class BasicAuth extends PureComponent {
         <Modal.Body>
           <Form horizontal>
             <FormGroup controlId="formHorizontalEmail">
-              <Col as={ControlLabel} sm={2}>
+              <Col as={Form.Label} sm={2}>
                 {t('Username')}
               </Col>
               <Col sm={10}>
@@ -58,7 +58,7 @@ class BasicAuth extends PureComponent {
             </FormGroup>
 
             <FormGroup controlId="formHorizontalPassword">
-              <Col as={ControlLabel} sm={2}>
+              <Col as={Form.Label} sm={2}>
                 {t('Password')}
               </Col>
               <Col sm={10}>
