@@ -3,7 +3,7 @@ import { shell, remote } from 'electron'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import FontAwesome from 'react-fontawesome'
-import { Container, Col, Row, Checkbox, Radio, Alert, Button, ButtonGroup, Collapse, Well, OverlayTrigger, Tooltip, Panel } from 'react-bootstrap'
+import { Container, Col, Row, Checkbox, Radio, Alert, Button, ButtonGroup, Collapse, Well, OverlayTrigger, Tooltip, Card } from 'react-bootstrap'
 import { get, partial } from 'lodash'
 import { connect } from 'react-redux'
 import FileDrop from 'react-file-dropzone'
@@ -353,9 +353,9 @@ export class PluginConfig extends Component {
             <Col xs={12}>
               {
                 window.isSafeMode &&
-                <Panel header={t('setting:Safe Mode')} variant='warning'>
-                  <Panel.Body>{t('setting:Poi is running in safe mode, plugins are not enabled automatically')}</Panel.Body>
-                </Panel>
+                <Card header={t('setting:Safe Mode')} variant='warning'>
+                  <Card.Body>{t('setting:Poi is running in safe mode, plugins are not enabled automatically')}</Card.Body>
+                </Card>
               }
               <ButtonGroup bsSize='small' className='plugin-buttongroup'>
                 <Button

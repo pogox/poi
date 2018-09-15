@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import FontAwesome from 'react-fontawesome'
-import { Col, Row, Button, ButtonGroup, OverlayTrigger, Tooltip, Panel } from 'react-bootstrap'
+import { Col, Row, Button, ButtonGroup, OverlayTrigger, Tooltip, Card } from 'react-bootstrap'
 import ReactMarkdown from 'react-remarkable'
 import { Trans } from 'react-i18next'
 
@@ -19,8 +19,8 @@ export class UninstalledPlugin extends PureComponent {
     return (
       <Row className='plugin-wrapper'>
         <Col xs={12}>
-          <Panel className='plugin-content'>
-            <Panel.Body>
+          <Card className='plugin-content'>
+            <Card.Body>
               <Row>
                 <Col xs={12} className='div-row'>
                   <span className='plugin-name'>
@@ -57,8 +57,8 @@ export class UninstalledPlugin extends PureComponent {
                   </ButtonGroup>
                 </Col>
               </Row>
-            </Panel.Body>
-          </Panel>
+            </Card.Body>
+          </Card>
         </Col>
       </Row>
     )

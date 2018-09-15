@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { get, map, range, forEach, values, sortBy } from 'lodash'
-import { Panel, Badge, OverlayTrigger, Tooltip, Col } from 'react-bootstrap'
+import { Card, Badge, OverlayTrigger, Tooltip, Col } from 'react-bootstrap'
 import { createSelector } from 'reselect'
 import React from 'react'
 import { translate, Trans } from 'react-i18next'
@@ -250,8 +250,8 @@ export class TaskPanel extends React.Component {
     const { activeQuests, activeCapacity, activeNum, t} = this.props
     const colwidth = Math.floor(12 / this.state.dimension)
     return (
-      <Panel variant="default">
-        <Panel.Body>
+      <Card variant="default">
+        <Card.Body>
           {[
             sortBy(map(values(activeQuests), 'detail'), 'api_no').map((quest, idx) =>
               <TaskRow
@@ -289,8 +289,8 @@ export class TaskPanel extends React.Component {
                 /> )
             ),
           ]}
-        </Panel.Body>
-      </Panel>
+        </Card.Body>
+      </Card>
     )
   }
 }

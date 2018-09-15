@@ -2,7 +2,7 @@ import classnames from 'classnames'
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import FontAwesome from 'react-fontawesome'
-import { Col, Row, Button, ButtonGroup, Badge, Collapse, Well, OverlayTrigger, Tooltip, Panel } from 'react-bootstrap'
+import { Col, Row, Button, ButtonGroup, Badge, Collapse, Well, OverlayTrigger, Tooltip, Card } from 'react-bootstrap'
 import ReactMarkdown from 'react-remarkable'
 import { Trans } from 'react-i18next'
 
@@ -76,8 +76,8 @@ export class InstalledPlugin extends PureComponent {
     return (
       <Row className='plugin-wrapper'>
         <Col xs={12}>
-          <Panel className={panelClass}>
-            <Panel.Body>
+          <Card className={panelClass}>
+            <Card.Body>
               <Row>
                 <Col xs={12} className='div-row'>
                   <span className='plugin-name'>
@@ -201,8 +201,8 @@ export class InstalledPlugin extends PureComponent {
                     </Collapse>
                 }
               </Row>
-            </Panel.Body>
-          </Panel>
+            </Card.Body>
+          </Card>
         </Col>
       </Row>
     )

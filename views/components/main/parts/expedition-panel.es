@@ -1,4 +1,4 @@
-import { Panel, OverlayTrigger, Tooltip } from 'react-bootstrap'
+import { Card, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import React, { Component } from 'react'
 import { join } from 'path-extra'
 import { createSelector } from 'reselect'
@@ -94,8 +94,8 @@ export class ExpeditionPanel extends Component {
   render() {
     const {fleetsExpedition, fleetNames, $expeditions, canNotify, notifyBefore} = this.props
     return (
-      <Panel variant="default">
-        <Panel.Body>
+      <Card variant="default">
+        <Card.Body>
           {
             range(1, 4).map((i) => {
               const [status, expeditionId, rawCompleteTime] = fleetsExpedition[i] || [-1, 0, -1]
@@ -136,8 +136,8 @@ export class ExpeditionPanel extends Component {
               )
             })
           }
-        </Panel.Body>
-      </Panel>
+        </Card.Body>
+      </Card>
     )
   }
 }

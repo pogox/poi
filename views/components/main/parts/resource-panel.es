@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Panel } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import classNames from 'classnames'
 import { connect } from 'react-redux'
 import { get, isEqual, range } from 'lodash'
@@ -102,8 +102,8 @@ export class ResourcePanel extends React.Component {
     const valid = !!admiralLv
     const limit = 750 + admiralLv * 250
     return (
-      <Panel variant="default">
-        <Panel.Body>
+      <Card variant="default">
+        <Card.Body>
           {
             (dimension === 2 ? order : range(8)).map((i) => {
               const iconClassName = classNames('material-icon', {
@@ -129,8 +129,8 @@ export class ResourcePanel extends React.Component {
               )
             })
           }
-        </Panel.Body>
-      </Panel>
+        </Card.Body>
+      </Card>
     )
   }
 }

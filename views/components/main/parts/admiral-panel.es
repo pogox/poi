@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Panel, OverlayTrigger, Tooltip, Badge } from 'react-bootstrap'
+import { Card, OverlayTrigger, Tooltip, Badge } from 'react-bootstrap'
 import { createSelector } from 'reselect'
 import { get, map } from 'lodash'
 import moment from 'moment-timezone'
@@ -249,8 +249,8 @@ export const AdmiralPanel = translate(['main'])(connect(
   const slotNumClass = (slotNumCheck && maxSlotitem - equipNum < minSlotNum) ? 'alert alert-warning' : ''
 
   return (
-    <Panel variant="default">
-      <Panel.Body>
+    <Card variant="default">
+      <Card.Body>
         <OverlayTrigger placement="bottom" overlay={<Tooltip id="teitoku-exp" className='info-tooltip'><ExpContent/></Tooltip>}>
           {
             level >= 0
@@ -271,7 +271,7 @@ export const AdmiralPanel = translate(['main'])(connect(
           <span>{t('main:Equip')}: </span>
           <span className={slotNumClass}>{equipNum || '?'} / {maxSlotitem || '?'}</span>
         </span>
-      </Panel.Body>
-    </Panel>
+      </Card.Body>
+    </Card>
   )
 }))

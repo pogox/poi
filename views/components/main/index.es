@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import FontAwesome from 'react-fontawesome'
 import { connect } from 'react-redux'
 import { get } from 'lodash'
-import { Tab, Tabs, Panel } from 'react-bootstrap'
+import { Tab, Tabs, Card } from 'react-bootstrap'
 import { translate, Trans } from 'react-i18next'
 
 import defaultLayout from './default-layout'
@@ -75,8 +75,8 @@ export class reactClass extends Component {
           <div className="miniship" key="miniship" id='MiniShip' ref={ref => { this.miniship = ref }}>
             <MiniShip />
           </div>
-          <Panel className="combined-panels panel-col" key="combined-panels">
-            <Panel.Body>
+          <Card className="combined-panels panel-col" key="combined-panels">
+            <Card.Body>
               <Tabs defaultActiveKey={1} animation={false} id="dock-panel-tabs" className="dock-panel-tabs">
                 <Tab eventKey={1} title={t('main:Docking')}>
                   <div className="ndock-panel flex">
@@ -89,8 +89,8 @@ export class reactClass extends Component {
                   </div>
                 </Tab>
               </Tabs>
-            </Panel.Body>
-          </Panel>
+            </Card.Body>
+          </Card>
           <div className="expedition-panel" key="expedition-panel">
             <ExpeditionPanel />
           </div>

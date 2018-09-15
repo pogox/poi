@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import classNames from 'classnames'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Panel, Button, ButtonGroup, Alert } from 'react-bootstrap'
+import { Card, Button, ButtonGroup, Alert } from 'react-bootstrap'
 import FontAwesome from 'react-fontawesome'
 import { get, memoize, times } from 'lodash'
 import { createSelector } from 'reselect'
@@ -185,8 +185,8 @@ export class reactClass extends Component {
 
   render() {
     return (
-      <Panel onDoubleClick={this.changeMainView}>
-        <Panel.Body>
+      <Card onDoubleClick={this.changeMainView}>
+        <Card.Body>
           <div className="div-row fleet-name-button-container">
             <ButtonGroup className="fleet-name-button">
               {
@@ -234,8 +234,8 @@ export class reactClass extends Component {
               </div>
             </div>
           </div>
-        </Panel.Body>
-      </Panel>
+        </Card.Body>
+      </Card>
     )
   }
 }

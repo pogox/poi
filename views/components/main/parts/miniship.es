@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import classNames from 'classnames'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Panel, Button, ButtonGroup } from 'react-bootstrap'
+import { Card, Button, ButtonGroup } from 'react-bootstrap'
 import { get, memoize } from 'lodash'
 import { createSelector } from 'reselect'
 
@@ -104,8 +104,8 @@ export class MiniShip extends Component {
   render() {
     return (
       <div style={{height: '100%'}} onDoubleClick={this.changeShipView}>
-        <Panel id="ShipViewMini" className="ship-view-mini" variant="default">
-          <Panel.Body>
+        <Card id="ShipViewMini" className="ship-view-mini" variant="default">
+          <Card.Body>
             <div className="panel-row miniship-fleet-btn">
               <ButtonGroup bsSize="xsmall">
                 {
@@ -148,8 +148,8 @@ export class MiniShip extends Component {
                 </div>
               </div>
             </div>
-          </Panel.Body>
-        </Panel>
+          </Card.Body>
+        </Card>
       </div>
     )
   }
