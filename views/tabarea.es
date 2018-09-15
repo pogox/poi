@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import React, { Component, Children, PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import FontAwesome from 'react-fontawesome'
-import { Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap'
+import { Nav, NavItem, NavDropdown, DropdownItem } from 'react-bootstrap'
 import { isEqual, omit, get } from 'lodash'
 import { ResizableArea } from 'react-resizable-area'
 import shallowEqual from 'fbjs/lib/shallowEqual'
@@ -380,9 +380,9 @@ export class ControlledTabArea extends PureComponent {
     const activePluginName = activePlugin.packageName
     const defaultPluginTitle = <span><FontAwesome name='sitemap' /> {t('others:Plugins')}</span>
     const pluginDropdownContents = this.props.plugins.length == 0 ? (
-      <MenuItem key={1002} disabled>
+      <DropdownItem key={1002} disabled>
         {t('setting:Install plugins in settings')}
-      </MenuItem>
+      </DropdownItem>
     ) : (
       this.listedPlugins().map((plugin, index) => {
         const handleClick = plugin.handleClick ?
@@ -391,9 +391,9 @@ export class ControlledTabArea extends PureComponent {
             e => this.openWindow(plugin) :
             undefined
         return (
-          <MenuItem key={plugin.id} eventKey={this.props.activeMainTab === plugin.id ? '' : plugin.id} onSelect={handleClick}>
+          <DropdownItem key={plugin.id} eventKey={this.props.activeMainTab === plugin.id ? '' : plugin.id} onSelect={handleClick}>
             {plugin.displayName}
-          </MenuItem>
+          </DropdownItem>
         )
       })
     )
