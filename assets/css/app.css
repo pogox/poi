@@ -209,6 +209,11 @@ poi-nav .grid-menu ul[aria-labelledby="plugin-dropdown"] li [class*="fa-"].svg-i
   flex-basis: 11%;
 }
 
+#top-nav .nav-link {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 #electron-app-title-bar {
   background-color: transparent !important;
   box-sizing: content-box !important;
