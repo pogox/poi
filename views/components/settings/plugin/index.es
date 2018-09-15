@@ -3,7 +3,7 @@ import { shell, remote } from 'electron'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import FontAwesome from 'react-fontawesome'
-import { Container, Col, Row, Form, Radio, Alert, Button, ButtonGroup, Collapse, Card, OverlayTrigger, Tooltip, Card } from 'react-bootstrap'
+import { Container, Col, Row, Form, Alert, Button, ButtonGroup, Collapse, Card, OverlayTrigger, Tooltip, Card } from 'react-bootstrap'
 import { get, partial } from 'lodash'
 import { connect } from 'react-redux'
 import FileDrop from 'react-file-dropzone'
@@ -446,12 +446,13 @@ export class PluginConfig extends Component {
                                   }
                                 >
                                   <Col key={index} xs={6} className='select-npm-server'>
-                                    <Radio
+                                    <Form.Check
+                                      type="radio"
                                       checked={this.props.mirrorName == server}
                                       onChange={this.onSelectServer.bind(this, server)}
                                     >
                                       {mirrors[server].name}
-                                    </Radio>
+                                    </Form.Check>
                                   </Col>
                                 </OverlayTrigger>
                               )

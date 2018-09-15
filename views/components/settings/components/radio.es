@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Col, Container, Radio } from 'react-bootstrap'
+import { Col, Container, Form } from 'react-bootstrap'
 import { get } from 'lodash'
 
 const { config } = window
@@ -29,10 +29,10 @@ export class RadioConfig extends Component {
           this.props.availableVal.map((item, index) => {
             return (
               <Col key={index} xs={3}>
-                <Radio checked={this.props.value === item.value}
+                <Form.Check type="radio" checked={this.props.value === item.value}
                   onChange={this.onSelect.bind(this, item.value)} >
                   {item.name}
-                </Radio>
+                </Form.Check>
               </Col>
             )
           })
