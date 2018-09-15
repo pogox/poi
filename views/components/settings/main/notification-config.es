@@ -15,7 +15,7 @@ import {
   OverlayTrigger,
   Tooltip,
   Collapse,
-  Well,
+  Card,
 } from 'react-bootstrap'
 import { translate } from 'react-i18next'
 
@@ -144,7 +144,7 @@ export class NotificationConfig extends Component {
             </Button>
           </ButtonGroup>
           <Collapse in={this.state.timeSettingShow}>
-            <Well>
+            <Card>
               <Row>
                 <Col xs={9} className='notif-container'>
                   <div className='notif-input-desc'>{t('setting:Expedition')}: {t('setting:Notify when expedition returns in')}</div>
@@ -183,7 +183,7 @@ export class NotificationConfig extends Component {
                   <Button bsSize='small' onClick={this.saveNotifySetting}>{t('setting:Save')}</Button>
                 </Col>
               </Row>
-            </Well>
+            </Card>
           </Collapse>
         </Col>
       </Container>
