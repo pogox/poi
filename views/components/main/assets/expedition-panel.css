@@ -1,4 +1,4 @@
-.MainView .expedition-panel .panel-body {
+.MainView .expedition-panel .card-body {
   /* border: 1px solid orange; */
   display: flex;
   flex-flow: column nowrap;

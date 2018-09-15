@@ -23,13 +23,13 @@
   width: 100%;
 }
 
-.ShipView > .panel {
+.ShipView > .card {
   height: calc(100% - 10px);
   margin: 2px;
   overflow: auto;
 }
 
-.ShipView .panel-body {
+.ShipView .card-body {
   height: 100%;
   padding: 2px;
 }

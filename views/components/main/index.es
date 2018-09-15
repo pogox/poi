@@ -75,7 +75,7 @@ export class reactClass extends Component {
           <div className="miniship" key="miniship" id='MiniShip' ref={ref => { this.miniship = ref }}>
             <MiniShip />
           </div>
-          <Card className="combined-panels panel-col" key="combined-panels">
+          <Card className="combined-panels panel-col dock-panel" key="combined-panels">
             <Card.Body>
               <Tabs defaultActiveKey={1} animation={false} id="dock-panel-tabs" className="dock-panel-tabs">
                 <Tab eventKey={1} title={t('main:Docking')}>

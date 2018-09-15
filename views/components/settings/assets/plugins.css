@@ -58,7 +58,7 @@
   opacity: 0.5;
 }
 
-.SettingsView .plugin-content > .panel-body {
+.SettingsView .plugin-content > .card-body {
   padding: 10px;
 }
 

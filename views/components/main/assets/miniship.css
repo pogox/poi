@@ -6,7 +6,7 @@
   height: 100%;
 }
 
-.miniship .ship-view-mini > .panel-body {
+.miniship .ship-view-mini > .card-body {
   display: flex;
   flex-direction: column;
 }
@@ -358,8 +358,8 @@
   margin-bottom: 2px;
 }
 
-.miniship .ship-panel-full .panel-body,
-.miniship .ship-panel-half .panel-body {
+.miniship .ship-panel-full .card-body,
+.miniship .ship-panel-half .card-body {
   height: 100%;
   padding: 1px;
 }
