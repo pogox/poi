@@ -113,7 +113,7 @@ export class InstalledPlugin extends PureComponent {
                   <ReactMarkdown source={plugin.description} />
                 </Col>
                 <Col className='plugin-option' xs={5}>
-                  <ButtonGroup bsSize='small' className={btnGroupClass}>
+                  <ButtonGroup size='small' className={btnGroupClass}>
                     {
                       settingAvailable?
                         <OverlayTrigger placement='top' overlay={
@@ -122,7 +122,7 @@ export class InstalledPlugin extends PureComponent {
                           </Tooltip>
                         }>
                           <Button
-                            variant='primary' bsSize='xs'
+                            variant='primary' size='xs'
                             onClick={this.toggleSettingPop}
                             className='plugin-control-button btn-xs-4'>
                             <FontAwesome name='gear' />

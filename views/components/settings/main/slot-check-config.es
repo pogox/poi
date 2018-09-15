@@ -75,7 +75,7 @@ export class SlotCheckConfig extends Component {
     if (this.state.showInput) {
       toggleBtnTxt = t('setting:Disable')
     }
-    const toggleBtn = <Button onClick={this.handleToggleInput} bsSize='xs'
+    const toggleBtn = <Button onClick={this.handleToggleInput} size='xs'
       variant={toggleBtnStyle} style={{verticalAlign: 'text-bottom'}}>
       {toggleBtnTxt}
     </Button>
@@ -94,7 +94,7 @@ export class SlotCheckConfig extends Component {
             <Card>
               <FormGroup>
                 <Form.Label>{t(`setting:Warn if the number of free ${this.props.type} slots is less than`)}</Form.Label>
-                <InputGroup bsSize='small'>
+                <InputGroup size='small'>
                   <FormControl type="text"
                     variant={inputValid ? 'success' : 'error'}
                     value={this.state.value}

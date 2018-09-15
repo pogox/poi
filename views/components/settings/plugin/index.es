@@ -357,7 +357,7 @@ export class PluginConfig extends Component {
                   <Card.Body>{t('setting:Poi is running in safe mode, plugins are not enabled automatically')}</Card.Body>
                 </Card>
               }
-              <ButtonGroup bsSize='small' className='plugin-buttongroup'>
+              <ButtonGroup size='small' className='plugin-buttongroup'>
                 <Button
                   onClick={this.checkUpdate}
                   disabled={this.state.checkingUpdate}

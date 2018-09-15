@@ -186,7 +186,7 @@ export class WctfDB extends Component {
     return (
       <>
         <Button
-          bsSize="small"
+          size="small"
           onClick={this.handleRefesh}
           disabled={updating}
           style={{ marginRight: '1em' }}

@@ -55,7 +55,7 @@ const ShipViewSwitchButton = connect(
     shipViewSwitchButtonDataSelectorFactory(fleetId)(state)
 )(({fleetId, activeFleetId, fleetName, fleetState, onClick, disabled}) =>
   <Button
-    bsSize="small"
+    size="small"
     variant={getStyle(fleetState, disabled)}
     onClick={onClick}
     disabled={disabled}

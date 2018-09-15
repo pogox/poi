@@ -132,7 +132,7 @@ export class NavigatorBar extends React.Component {
       <div className='navigator'>
         <div className='navigator-url'>
           <FormGroup>
-            <InputGroup bsSize='small' style={{width: '100%'}}>
+            <InputGroup size='small' style={{width: '100%'}}>
               <FormControl type='text'
                 placeholder={t('setting:Input address')}
                 className={statusIcon? 'navigator-status' : 'navigator-no-status'}
@@ -147,12 +147,12 @@ export class NavigatorBar extends React.Component {
         </div>
         <div className='navigator-btn'>
           <ButtonGroup>
-            <Button bsSize='small' variant='primary' onClick={navigateAction}>{navigateIcon}</Button>
-            <Button bsSize='small' variant='warning' onClick={gameRefreshPage} onContextMenu={gameReloadFlash}><FontAwesome name='refresh' /></Button>
+            <Button size='small' bsStyle='primary' onClick={navigateAction}>{navigateIcon}</Button>
+            <Button size='small' bsStyle='warning' onClick={gameRefreshPage} onContextMenu={gameReloadFlash}><FontAwesome name='refresh' /></Button>
           </ButtonGroup>
           <ButtonGroup style={{marginLeft: 5}}>
             <OverlayTrigger placement='top' overlay={<Tooltip id='nav-homepage'>{t('setting:Set as homepage')}</Tooltip>}>
-              <Button bsSize='small' onClick={this.onClickHomepage} onContextMenu={this.onRightClickHomepage}><FontAwesome name='bookmark' /></Button>
+              <Button size='small' onClick={this.onClickHomepage} onContextMenu={this.onRightClickHomepage}><FontAwesome name='bookmark' /></Button>
             </OverlayTrigger>
           </ButtonGroup>
         </div>

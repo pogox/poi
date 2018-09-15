@@ -151,7 +151,7 @@ export class NotificationConfig extends Component {
                 </Col>
                 <Col xs={3} className='notif-container'>
                   <FormGroup>
-                    <InputGroup bsSize='small'>
+                    <InputGroup size='small'>
                       <FormControl type="number" id="expeditionValue"
                         disabled={!this.props.expedition}
                         onChange={this.handleSetExpedition}
@@ -170,7 +170,7 @@ export class NotificationConfig extends Component {
                   <div className='notif-input-desc'>{t('setting:Morale')}: {t('setting:Notify when morale is greater than')}</div>
                 </Col>
                 <Col xs={3} className='notif-container'>
-                  <InputGroup bsSize='small'>
+                  <InputGroup size='small'>
                     <FormControl type="number" id="moraleValue"
                       disabled={!this.props.morale}
                       onChange={this.handleSetMorale}
@@ -182,7 +182,7 @@ export class NotificationConfig extends Component {
               </Row>
               <Row>
                 <Col xs={2} xsOffset={10}>
-                  <Button bsSize='small' onClick={this.saveNotifySetting}>{t('setting:Save')}</Button>
+                  <Button size='small' onClick={this.saveNotifySetting}>{t('setting:Save')}</Button>
                 </Col>
               </Row>
             </Card>

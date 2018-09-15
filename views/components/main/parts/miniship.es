@@ -44,7 +44,7 @@ const ShipViewSwitchButton = connect(
     shipViewSwitchButtonDataSelectorFactory(fleetId)(state)
 )(({fleetId, activeFleetId, fleetState, onClick, disabled}) =>
   <Button
-    bsSize="xsmall"
+    size="xsmall"
     variant={getStyle(fleetState, disabled)}
     onClick={onClick}
     disabled={disabled}
@@ -107,7 +107,7 @@ export class MiniShip extends Component {
         <Card id="ShipViewMini" className="ship-view-mini" variant="default">
           <Card.Body>
             <div className="panel-row miniship-fleet-btn">
-              <ButtonGroup bsSize="xsmall">
+              <ButtonGroup size="xsmall">
                 {
                   [0, 1, 2, 3].map((i) =>
                     <ShipViewSwitchButton
@@ -120,7 +120,7 @@ export class MiniShip extends Component {
                   )
                 }
               </ButtonGroup>
-              <ButtonGroup bsSize="xsmall" className='plane-button-mini'>
+              <ButtonGroup size="xsmall" className='plane-button-mini'>
                 <LandbaseButton key={4}
                   fleetId={4}
                   disabled={this.props.airBaseCnt === 0}

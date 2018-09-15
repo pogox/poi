@@ -46,7 +46,7 @@ export class NameInput extends PureComponent {
     return (
       <FormGroup>
         <Form.Label>{t('setting:Install directly from npm')}</Form.Label>
-        <InputGroup bsSize='small'>
+        <InputGroup size='small'>
           <FormControl type="text"
             value={packageName}
             onChange={this.changeInstalledPackage}

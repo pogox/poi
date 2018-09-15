@@ -1,18 +1,18 @@
 import { connect } from 'react-redux'
 import React from 'react'
-import { Button, Badge, Tooltip, OverlayTrigger } from 'react-bootstrap'
+import { Button, Label, Tooltip, OverlayTrigger } from 'react-bootstrap'
 import FontAwesome from 'react-fontawesome'
 import { get } from 'lodash'
 import { translate, Trans } from 'react-i18next'
 
 import './assets/landbase-button.css'
 
-const fatiguedLabel = <Badge variant='danger' className='airbase-state-label'><Trans>main:Fatigued</Trans></Badge>
-const emptyLabel = <Badge variant='warning' className='airbase-state-label'><Trans>main:Empty Slot</Trans></Badge>
-const relocateLabel = <Badge variant='warning' className='airbase-state-label'><Trans>main:Relocating</Trans></Badge>
-const resupplyLabel = <Badge variant='warning' className='airbase-state-label'><Trans>main:Resupply Needed</Trans></Badge>
-const noActionLabel = <Badge variant='warning' className='airbase-state-label'><Trans>main:No Action</Trans></Badge>
-const readyLabel = <Badge variant='success' className='airbase-state-label'><Trans>main:Ready</Trans></Badge>
+const fatiguedLabel = <Label bsStyle='danger' className='airbase-state-label'><Trans>main:Fatigued</Trans></Label>
+const emptyLabel = <Label bsStyle='warning' className='airbase-state-label'><Trans>main:Empty Slot</Trans></Label>
+const relocateLabel = <Label bsStyle='warning' className='airbase-state-label'><Trans>main:Relocating</Trans></Label>
+const resupplyLabel = <Label bsStyle='warning' className='airbase-state-label'><Trans>main:Resupply Needed</Trans></Label>
+const noActionLabel = <Label bsStyle='warning' className='airbase-state-label'><Trans>main:No Action</Trans></Label>
+const readyLabel = <Label bsStyle='success' className='airbase-state-label'><Trans>main:Ready</Trans></Label>
 
 export const LandbaseButton = translate(['resources'])(connect(state => ({
   sortieStatus: get(state, 'sortie.sortieStatus', []),
@@ -43,7 +43,7 @@ export const LandbaseButton = translate(['resources'])(connect(state => ({
   const squardCond = airbaseProps.filter(a => !a.allEmpty).map(a => a.squardCond).reduce((a, b) => a * b, 1)
   const noAction = airbaseProps.filter(a => !a.allEmpty).map(a => a.noAction).reduce((a, b) => a || b, false)
   const sortie = sortieStatus.filter(a => !a.allEmpty).reduce((a, b) => a || b, false)
-  const variant = (() => {
+  const bsStyle = (() => {
     if (sortie) {
       return 'default'
     } else if (squardCond > 1) {
@@ -83,8 +83,8 @@ export const LandbaseButton = translate(['resources'])(connect(state => ({
   return (
     <OverlayTrigger placement='bottom' overlay={propTooltip}>
       <Button
-        bsSize={isMini ? 'xsmall' : 'small'}
-        variant={variant}
+        size={isMini ? 'xsmall' : 'small'}
+        bsStyle={bsStyle}
         onClick={onClick}
         disabled={disabled}
         className={fleetId == activeFleetId ? 'active' : ''}

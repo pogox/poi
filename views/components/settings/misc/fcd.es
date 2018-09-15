@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Badge } from 'react-bootstrap'
+import { Button, Label } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { get } from 'lodash'
 import { sync as globSync } from 'glob'
@@ -112,7 +112,7 @@ export class FCD extends Component {
         <Button
           onClick={this.updateData('reload')}
           disabled={updating}
-          bsSize="small"
+          size="small"
           style={{ marginRight: '1em' }}
         >
           <FA name="refresh" spin={updating} ></FA>
@@ -121,7 +121,7 @@ export class FCD extends Component {
           fcds.map(fcd => (
             fcd
               ? <span key={fcd[0]} className="data-version">
-                {fcd[0]}: <Badge variant="primary">{fcd[1]}</Badge>
+                {fcd[0]}: <Label bsStyle="primary">{fcd[1]}</Label>
               </span>
               : null
           ))

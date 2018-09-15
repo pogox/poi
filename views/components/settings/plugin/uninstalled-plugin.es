@@ -40,7 +40,7 @@ export class UninstalledPlugin extends PureComponent {
                   <ReactMarkdown source={plugin[`des${window.language}`]} />
                 </Col>
                 <Col className='plugin-option-install' xs={5}>
-                  <ButtonGroup bsSize='small' className='plugin-buttongroup btn-xs-4'>
+                  <ButtonGroup size='small' className='plugin-buttongroup btn-xs-4'>
                     <OverlayTrigger placement='top' overlay={
                       <Tooltip id={`${plugin.id}-ins-btn`}>
                         {installButtonText}
