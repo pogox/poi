@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { get } from 'lodash'
 import { remote } from 'electron'
 import {
-  Grid,
+  Container,
   Col,
   Button,
   FormControl,
@@ -62,7 +62,7 @@ export class ClearDataConfig extends Component {
   render() {
     const { t } = this.props
     return (
-      <Grid>
+      <Container>
         <Col xs={6}>
           <FormGroup>
             <ControlLabel>{t('setting:Current cache size')}</ControlLabel>
@@ -105,7 +105,7 @@ export class ClearDataConfig extends Component {
             {t('setting:If connection error occurs frequently, delete both of them')}
           </Alert>
         </Col>
-      </Grid>
+      </Container>
     )
   }
 }

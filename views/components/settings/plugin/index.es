@@ -3,7 +3,7 @@ import { shell, remote } from 'electron'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import FontAwesome from 'react-fontawesome'
-import { Grid, Col, Row, Checkbox, Radio, Alert, Button, ButtonGroup, Collapse, Well, OverlayTrigger, Tooltip, Panel } from 'react-bootstrap'
+import { Container, Col, Row, Checkbox, Radio, Alert, Button, ButtonGroup, Collapse, Well, OverlayTrigger, Tooltip, Panel } from 'react-bootstrap'
 import { get, partial } from 'lodash'
 import { connect } from 'react-redux'
 import FileDrop from 'react-file-dropzone'
@@ -348,7 +348,7 @@ export class PluginConfig extends Component {
         >
           {t('setting:Drop plugin tarballs here to install')}
         </FileDrop>
-        <Grid className='correct-container'>
+        <Container className='correct-container'>
           <Row className='plugin-rowspace'>
             <Col xs={12}>
               {
@@ -561,7 +561,7 @@ export class PluginConfig extends Component {
               )
             }, this)
           }
-        </Grid>
+        </Container>
       </form>
     )
   }

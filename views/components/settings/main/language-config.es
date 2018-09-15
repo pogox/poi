@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { get, each } from 'lodash'
-import { Grid, Col, FormControl } from 'react-bootstrap'
+import { Container, Col, FormControl } from 'react-bootstrap'
 import i18next from 'views/env-parts/i18next'
 
 const { config } = window
@@ -27,7 +27,7 @@ export class LanguageConfig extends Component {
   }
   render() {
     return (
-      <Grid>
+      <Container>
         <Col xs={6}>
           <FormControl as="select" value={this.props.value} onChange={this.handleSetLanguage}>
             {
@@ -39,7 +39,7 @@ export class LanguageConfig extends Component {
             }
           </FormControl>
         </Col>
-      </Grid>
+      </Container>
     )
   }
 }

@@ -1,4 +1,4 @@
-import { FormControl, FormGroup, ControlLabel, Checkbox, Grid, Col, Button, Alert, Collapse } from 'react-bootstrap'
+import { FormControl, FormGroup, ControlLabel, Checkbox, Container, Col, Button, Alert, Collapse } from 'react-bootstrap'
 import FontAwesome from 'react-fontawesome'
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
@@ -148,7 +148,7 @@ export class NetworkConfig extends Component {
     return (
       <form>
         <Divider text={t('setting:Proxy server information')} />
-        <Grid>
+        <Container>
           <Col xs={12}>
             <FormControl as="select" value={this.state.use || "none"} onChange={this.handleChangeUse}>
               <option key={0} value="http">HTTP {t('setting:proxy')}</option>
@@ -157,10 +157,10 @@ export class NetworkConfig extends Component {
               <option key={3} value="none">{t('setting:No proxy')}</option>
             </FormControl>
           </Col>
-        </Grid>
+        </Container>
         {
           (this.state.use === 'http') ?
-            <Grid>
+            <Container>
               <Col xs={6}>
                 <FormGroup>
                   <ControlLabel>{t('setting:Proxy server address')}</ControlLabel>
@@ -193,9 +193,9 @@ export class NetworkConfig extends Component {
                 </Col>
               </div>
 
-            </Grid>
+            </Container>
             :(this.state.use == 'socks5') ?
-              <Grid>
+              <Container>
                 <Col xs={6}>
                   <FormGroup>
                     <ControlLabel>{t('setting:Proxy server address')}</ControlLabel>
@@ -208,25 +208,25 @@ export class NetworkConfig extends Component {
                     <FormControl type="text" placeholder={t('setting:Proxy server port')} value={this.state.socks5.port} onChange={this.handleSocksPortChange} />
                   </FormGroup>
                 </Col>
-              </Grid>
+              </Container>
               : (this.state.use === 'pac') ?
-                <Grid>
+                <Container>
                   <Col xs={12}>
                     <FormGroup>
                       <ControlLabel>{t('setting:PAC address')}</ControlLabel>
                       <FormControl type="text" placeholder={t('setting:PAC address')} value={this.state.pacAddr} onChange={this.handlePACAddrChange} />
                     </FormGroup>
                   </Col>
-                </Grid>
+                </Container>
                 :
-                <Grid>
+                <Container>
                   <Col xs={12}>
                     <center>{t('setting:Will connect to server directly')}</center>
                   </Col>
-                </Grid>
+                </Container>
         }
         <Divider text={t('setting:Times of reconnect')} />
-        <Grid>
+        <Container>
           <Col xs={12}>
             <FormControl type="number" value={this.state.retries} onChange={this.handleSetRetries} />
           </Col>
@@ -235,14 +235,14 @@ export class NetworkConfig extends Component {
               {t('setting:It may be unsafe!')}
             </Alert>
           </Col>
-        </Grid>
+        </Container>
         <Divider onClick={this.handleShowAdvanced} text={
           <span>
             <span>{t('setting:Advanced (require restart)')}</span>
             <FontAwesome name={this.state.showAdvanced ? 'angle-up' : 'angle-down'} />
           </span>
         } />
-        <Grid>
+        <Container>
           <Collapse in={this.state.showAdvanced}>
             <div>
               <Col xs={12}>
@@ -254,13 +254,13 @@ export class NetworkConfig extends Component {
               </Col>
             </div>
           </Collapse>
-        </Grid>
+        </Container>
         <Divider text={t('setting:Save settings')} />
-        <Grid>
+        <Container>
           <Col xs={12}>
             <Button variant="success" onClick={this.handleSaveConfig} style={{width: '100%'}}>{t('setting:Save')}</Button>
           </Col>
-        </Grid>
+        </Container>
       </form>
     )
   }

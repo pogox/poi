@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Col, Grid, Radio } from 'react-bootstrap'
+import { Col, Container, Radio } from 'react-bootstrap'
 import { get } from 'lodash'
 
 const { config } = window
@@ -24,7 +24,7 @@ export class RadioConfig extends Component {
   }
   render() {
     return (
-      <Grid>
+      <Container>
         {
           this.props.availableVal.map((item, index) => {
             return (
@@ -37,7 +37,7 @@ export class RadioConfig extends Component {
             )
           })
         }
-      </Grid>
+      </Container>
     )
   }
 }

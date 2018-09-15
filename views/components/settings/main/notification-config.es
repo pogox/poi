@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { get } from 'lodash'
 import FontAwesome from 'react-fontawesome'
 import {
-  Grid,
+  Container,
   Col,
   Row,
   Button,
@@ -93,7 +93,7 @@ export class NotificationConfig extends Component {
   render () {
     const { t } = this.props
     return (
-      <Grid>
+      <Container>
         <Col xs={6}>
           <Button
             variant={this.props.enabled ? 'success' : 'danger'}
@@ -186,7 +186,7 @@ export class NotificationConfig extends Component {
             </Well>
           </Collapse>
         </Col>
-      </Grid>
+      </Container>
     )
   }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { shell, remote } from 'electron'
 import { Divider } from '../components/divider'
-import { Grid, Col, Row, Button } from 'react-bootstrap'
+import { Container, Col, Row, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { get } from 'lodash'
 import { CheckboxLabelConfig } from '../components/checkbox'
@@ -41,12 +41,12 @@ export class Misc extends Component {
     const { t } = this.props
     return (
       <div id='poi-others' className='poi-others'>
-        <Grid>
+        <Container>
           <Col xs={12}>
             <img src={`file://${ROOT}/assets/img/logo.png`} style={{width: '100%'}} />
           </Col>
-        </Grid>
-        <Grid>
+        </Container>
+        <Container>
           <Row>
             <Col xs={6}>
               <Divider text={`${t('setting:Current version')}: v${POI_VERSION}`} />
@@ -55,8 +55,8 @@ export class Misc extends Component {
               <DownloadProgress />
             </Col>
           </Row>
-        </Grid>
-        <Grid>
+        </Container>
+        <Container>
           <Col xs={6}>
             <Button onClick={checkUpdate}>{t('setting:Check Update')}</Button>
           </Col>
@@ -96,16 +96,16 @@ export class Misc extends Component {
               </Button>
             </div>
           </Col>
-        </Grid>
+        </Container>
         <Divider text={t('setting:Data version')} />
-        <Grid>
+        <Container>
           <Col xs={12}>
             <FCD />
           </Col>
           <Col xs={12}>
             <WctfDB />
           </Col>
-        </Grid>
+        </Container>
         <Divider text={t('setting:GPU')} />
         <Col xs={12}>
           <GPUStatus />
@@ -115,7 +115,7 @@ export class Misc extends Component {
           <AppMetrics />
         </Col>
         <Divider text="Contributors" />
-        <Grid>
+        <Container>
           <Col xs={12} className="contributors">
             {
               CONTRIBUTORS.map((e, i) => (
@@ -130,15 +130,15 @@ export class Misc extends Component {
               ))
             }
           </Col>
-        </Grid>
+        </Container>
         <Divider text="OpenCollective" />
-        <Grid className="opencollective container">
+        <Container className="opencollective container">
           <Col xs={12}>
             <OpenCollective />
           </Col>
-        </Grid>
+        </Container>
         <Divider text="Special Thanks To" />
-        <Grid className='thanks-to sp-thanks-to'>
+        <Container className='thanks-to sp-thanks-to'>
           <div className="div-row thanks-to-item">
             <div className='thanks-to-img-container'>
               <img className="thanks-to-img"
@@ -157,9 +157,9 @@ export class Misc extends Component {
               <p>For sponsing poi data server, providing data of item imporvment, task info, shipgirl qoutes, etc.</p>
             </div>
           </div>
-        </Grid>
+        </Container>
         <Divider text="Thanks To" />
-        <Grid className='thanks-to'>
+        <Container className='thanks-to'>
           {
             CONST.thanksTo.map((e, i) => (
               <div className="div-row thanks-to-item" key={i}>
@@ -173,7 +173,7 @@ export class Misc extends Component {
               </div>
             ))
           }
-        </Grid>
+        </Container>
       </div>
     )
   }

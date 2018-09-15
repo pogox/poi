@@ -1,4 +1,4 @@
-import { Grid, Col, FormControl, OverlayTrigger, Tooltip } from 'react-bootstrap'
+import { Container, Col, FormControl, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -23,7 +23,7 @@ export class ZoomingConfig extends Component {
   }
   render() {
     return (
-      <Grid>
+      <Container>
         <Col xs={6}>
           <OverlayTrigger placement='top' overlay={
             <Tooltip id='displayconfig-zoom'><Trans>setting:Zoom level</Trans> <strong>{parseInt(this.state.zoomLevel * 100)}%</strong></Tooltip>
@@ -37,7 +37,7 @@ export class ZoomingConfig extends Component {
         <Col xs={6}>
           <Trans>setting:Zoom level</Trans> <strong>{parseInt(this.state.zoomLevel * 100)}%</strong>
         </Col>
-      </Grid>
+      </Container>
     )
   }
 }

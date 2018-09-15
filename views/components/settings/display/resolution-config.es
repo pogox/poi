@@ -1,4 +1,4 @@
-import { Grid, Col, FormControl, Checkbox } from 'react-bootstrap'
+import { Container, Col, FormControl, Checkbox } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -93,7 +93,7 @@ export class ResolutionConfig extends Component {
     const useFixedResolution = isolateGameWindow ? webview.windowUseFixedResolution : webview.useFixedResolution
     const labelText = `${Math.round(this.state.width / 1200 * 100)}%`
     return (
-      <Grid>
+      <Container>
         <Col xs={8}>
           <Checkbox
             checked={useFixedResolution}
@@ -137,7 +137,7 @@ export class ResolutionConfig extends Component {
             px
           </div>
         </Col>
-      </Grid>
+      </Container>
     )
   }
 }

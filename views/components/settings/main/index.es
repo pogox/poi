@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Col, OverlayTrigger, Tooltip } from 'react-bootstrap'
+import { Container, Col, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { remote } from 'electron'
 import { translate } from 'react-i18next'
 import { connect } from 'react-redux'
@@ -73,7 +73,7 @@ export const PoiConfig = connect(state => ({
     </div>
     <div className="form-group">
       <Divider text={t('setting:Other settings')} />
-      <Grid>
+      <Container>
         <Col xs={12}>
           {
             (process.platform !== 'darwin') ?
@@ -110,11 +110,11 @@ export const PoiConfig = connect(state => ({
             configName="poi.eventSortieCheck.enable"
             defaultVal={true} />
         </Col>
-      </Grid>
+      </Container>
     </div>
     <div className="form-group">
       <Divider text={t('setting:Advanced functionalities')} />
-      <Grid>
+      <Container>
         <Col xs={12}>
           <CheckboxLabelConfig
             label={t('setting:Disable Hardware Acceleration')}
@@ -159,7 +159,7 @@ export const PoiConfig = connect(state => ({
             configName="poi.misc.analytics"
             defaultVal={true} />
         </Col>
-      </Grid>
+      </Container>
     </div>
   </div>
 )))

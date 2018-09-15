@@ -1,7 +1,7 @@
 import path from 'path-extra'
 import fs from 'fs-extra'
 import { shell } from 'electron'
-import { Grid, Col, Button, FormControl, Checkbox, Overlay, Tooltip } from 'react-bootstrap'
+import { Container, Col, Button, FormControl, Checkbox, Overlay, Tooltip } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -83,7 +83,7 @@ export class ThemeConfig extends Component {
   render() {
     const { t } = this.props
     return (
-      <Grid>
+      <Container>
         <Col xs={6}>
           <FormControl as="select" value={this.props.theme} onChange={this.handleSetTheme}>
             {
@@ -152,7 +152,7 @@ export class ThemeConfig extends Component {
             {t('setting:Show shipgirl avatar')}
           </Checkbox>
         </Col>
-      </Grid>
+      </Container>
     )
   }
 }

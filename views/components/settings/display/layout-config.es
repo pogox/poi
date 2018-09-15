@@ -1,4 +1,4 @@
-import { Grid, Col, Button, ButtonGroup } from 'react-bootstrap'
+import { Container, Col, Button, ButtonGroup } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -95,7 +95,7 @@ export class LayoutConfig extends Component {
     const upActive = !overlayPanel && !isolateGameWindow && layout !== 'horizontal' && reversed
     const rightActive = !overlayPanel && !isolateGameWindow && layout === 'horizontal' && !reversed && ! overlayPanel
     return (
-      <Grid>
+      <Container>
         <Col xs={12}>
           <ButtonGroup>
             <Button variant={rightActive ? 'success' : 'danger'}
@@ -143,7 +143,7 @@ export class LayoutConfig extends Component {
             </Button>
           </ButtonGroup>
         </Col>
-      </Grid>
+      </Container>
     )
   }
 }
