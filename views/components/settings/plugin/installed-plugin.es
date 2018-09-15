@@ -2,7 +2,7 @@ import classnames from 'classnames'
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import FontAwesome from 'react-fontawesome'
-import { Col, Row, Button, ButtonGroup, Badge, Collapse, Card, OverlayTrigger, Tooltip, Card } from 'react-bootstrap'
+import { Col, Row, Button, ButtonGroup, Badge, Collapse, Card, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import ReactMarkdown from 'react-remarkable'
 import { Trans } from 'react-i18next'
 
