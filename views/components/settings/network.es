@@ -174,9 +174,12 @@ export class NetworkConfig extends Component {
                 </FormGroup>
               </Col>
               <Col xs={12}>
-                <Form.Check type="checkbox" checked={!!this.state.http.requirePassword} onChange={this.handleSetHttpRequirePassword}>
-                  {t('setting:Proxy server requires password')}
-                </Form.Check>
+                <Form.Check
+                  type="checkbox"
+                  checked={!!this.state.http.requirePassword}
+                  onChange={this.handleSetHttpRequirePassword}
+                  label={t('setting:Proxy server requires password')}
+                />
               </Col>
               <div style={(!this.state.http.requirePassword) ? {display: 'none'} : {}} >
                 <Col xs={6}>
@@ -250,7 +253,12 @@ export class NetworkConfig extends Component {
                 <FormControl type="number" value={this.state.port} onChange={this.handleSetPort} placeholder={t('setting:PoiDefaultPort')} />
               </Col>
               <Col xs={12}>
-                <Form.Check type="checkbox" checked={this.state.allowLAN} onChange={this.handleSetAllowLAN}>{t('setting:Allow connections from LAN')}</Form.Check>
+                <Form.Check
+                  type="checkbox"
+                  checked={this.state.allowLAN}
+                  onChange={this.handleSetAllowLAN}
+                  label={t('setting:Allow connections from LAN')}
+                />
               </Col>
             </div>
           </Collapse>

@@ -29,9 +29,9 @@ export class CheckboxLabelConfig extends Component {
           type="checkbox"
           disabled={this.props.undecided}
           checked={this.props.undecided ? false : this.props.value}
-          onChange={this.props.undecided ? null : this.handleChange}>
-          {this.props.label}
-        </Form.Check>
+          onChange={this.props.undecided ? null : this.handleChange}
+          label={this.props.label}
+        />
       </div>
     )
   }

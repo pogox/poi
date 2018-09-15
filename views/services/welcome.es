@@ -21,9 +21,9 @@ class GoogleAnalyticsOption extends Component {
       <Form.Check
         type="checkbox"
         checked={this.state.checked}
-        onChange={this.handleChange}>
-        {i18next.t('setting:Send data to Google Analytics')}
-      </Form.Check>
+        onChange={this.handleChange}
+        label={i18next.t('setting:Send data to Google Analytics')}
+      />
     )
   }
 }

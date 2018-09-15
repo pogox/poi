@@ -450,9 +450,8 @@ export class PluginConfig extends Component {
                                       type="radio"
                                       checked={this.props.mirrorName == server}
                                       onChange={this.onSelectServer.bind(this, server)}
-                                    >
-                                      {mirrors[server].name}
-                                    </Form.Check>
+                                      label={mirrors[server].name}
+                                    />
                                   </Col>
                                 </OverlayTrigger>
                               )
@@ -473,27 +472,24 @@ export class PluginConfig extends Component {
                             type="checkbox"
                             checked={this.props.proxy || false}
                             onChange={this.handleEnableProxy}
-                          >
-                            {t('setting:Connect to npm server through proxy')}
-                          </Form.Check>
+                            label={t('setting:Connect to npm server through proxy')}
+                          />
                         </div>
                         <div>
                           <Form.Check
                             type="checkbox"
                             checked={this.props.autoUpdate || false}
                             onChange={this.handleEnableAutoUpdate}
-                          >
-                            {t('setting:Automatically update plugins')}
-                          </Form.Check>
+                            label={t('setting:Automatically update plugins')}
+                          />
                         </div>
                         <div>
                           <Form.Check
                             type="checkbox"
                             checked={this.props.betaCheck || false}
                             onChange={this.handleEnableBetaPluginCheck}
-                          >
-                            {t('setting:Developer option check update of beta version')}
-                          </Form.Check>
+                            label={t('setting:Developer option check update of beta version')}
+                          />
                         </div>
                         <Row>
                           <ButtonGroup className='plugin-buttongroup'>

@@ -133,24 +133,36 @@ export class ThemeConfig extends Component {
           </div>
         </Col>
         <Col xs={12}>
-          <Form.Check type="checkbox" checked={this.props.enableSVGIcon} onChange={this.handleSetSVGIcon}>
-            {t('setting:Use SVG Icon')}
-          </Form.Check>
+          <Form.Check
+            type="checkbox"
+            checked={this.props.enableSVGIcon}
+            onChange={this.handleSetSVGIcon}
+            label={t('setting:Use SVG Icon')}
+          />
         </Col>
         <Col xs={12}>
-          <Form.Check type="checkbox" checked={this.props.enableTransition} onChange={this.handleSetTransition}>
-            {t('setting:Enable Smooth Transition')}
-          </Form.Check>
+          <Form.Check
+            type="checkbox"
+            checked={this.props.enableTransition}
+            onChange={this.handleSetTransition}
+            label={t('setting:Enable Smooth Transition')}
+          />
         </Col>
         <Col xs={12}>
-          <Form.Check type="checkbox" checked={this.props.useGridMenu} onChange={this.handleSetGridMenu}>
-            {t('setting:Use Gridded Plugin Menu')}
-          </Form.Check>
+          <Form.Check
+            type="checkbox"
+            checked={this.props.useGridMenu}
+            onChange={this.handleSetGridMenu}
+            label={t('setting:Use Gridded Plugin Menu')}
+          />
         </Col>
         <Col xs={12}>
-          <Form.Check type="checkbox" checked={this.props.enableAvatar} onChange={this.handleSetAvatar}>
-            {t('setting:Show shipgirl avatar')}
-          </Form.Check>
+          <Form.Check
+            type="checkbox"
+            checked={this.props.enableAvatar}
+            onChange={this.handleSetAvatar}
+            label={t('setting:Show shipgirl avatar')}
+          />
         </Col>
       </Container>
     )

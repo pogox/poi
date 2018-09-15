@@ -29,10 +29,12 @@ export class RadioConfig extends Component {
           this.props.availableVal.map((item, index) => {
             return (
               <Col key={index} xs={3}>
-                <Form.Check type="radio" checked={this.props.value === item.value}
-                  onChange={this.onSelect.bind(this, item.value)} >
-                  {item.name}
-                </Form.Check>
+                <Form.Check
+                  type="radio"
+                  checked={this.props.value === item.value}
+                  onChange={this.onSelect.bind(this, item.value)}
+                  label={item.name}
+                />
               </Col>
             )
           })

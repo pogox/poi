@@ -98,9 +98,9 @@ export class ResolutionConfig extends Component {
           <Form.Check
             type="checkbox"
             checked={useFixedResolution}
-            onChange={this.handleSetFixedResolution}>
-            <Trans>setting:Use certain resolution for game area</Trans>
-          </Form.Check>
+            onChange={this.handleSetFixedResolution}
+            label={<Trans>setting:Use certain resolution for game area</Trans>}
+          />
         </Col>
         <Col xs={4}>
           <FormControl as="select"
