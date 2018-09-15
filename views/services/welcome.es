@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Checkbox } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 import i18next from 'views/env-parts/i18next'
 
 const { config, POI_VERSION } = window
@@ -18,11 +18,12 @@ class GoogleAnalyticsOption extends Component {
   }
   render() {
     return (
-      <Checkbox
+      <Form.Check
+        type="checkbox"
         checked={this.state.checked}
         onChange={this.handleChange}>
         {i18next.t('setting:Send data to Google Analytics')}
-      </Checkbox>
+      </Form.Check>
     )
   }
 }

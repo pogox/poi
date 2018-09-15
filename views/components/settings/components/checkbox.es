@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import {  Checkbox } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 import { get } from 'lodash'
 
 const { config } = window
@@ -25,12 +25,13 @@ export class CheckboxLabelConfig extends Component {
   render () {
     return (
       <div className={this.props.undecided ? 'undecided-checkbox-inside' : ''} >
-        <Checkbox
+        <Form.Check
+          type="checkbox"
           disabled={this.props.undecided}
           checked={this.props.undecided ? false : this.props.value}
           onChange={this.props.undecided ? null : this.handleChange}>
           {this.props.label}
-        </Checkbox>
+        </Form.Check>
       </div>
     )
   }

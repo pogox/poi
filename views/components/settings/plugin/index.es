@@ -3,7 +3,7 @@ import { shell, remote } from 'electron'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import FontAwesome from 'react-fontawesome'
-import { Container, Col, Row, Checkbox, Radio, Alert, Button, ButtonGroup, Collapse, Card, OverlayTrigger, Tooltip, Card } from 'react-bootstrap'
+import { Container, Col, Row, Form, Radio, Alert, Button, ButtonGroup, Collapse, Card, OverlayTrigger, Tooltip, Card } from 'react-bootstrap'
 import { get, partial } from 'lodash'
 import { connect } from 'react-redux'
 import FileDrop from 'react-file-dropzone'
@@ -468,28 +468,31 @@ export class PluginConfig extends Component {
                           </Col>
                         </Row>
                         <div>
-                          <Checkbox
+                          <Form.Check
+                            type="checkbox"
                             checked={this.props.proxy || false}
                             onChange={this.handleEnableProxy}
                           >
                             {t('setting:Connect to npm server through proxy')}
-                          </Checkbox>
+                          </Form.Check>
                         </div>
                         <div>
-                          <Checkbox
+                          <Form.Check
+                            type="checkbox"
                             checked={this.props.autoUpdate || false}
                             onChange={this.handleEnableAutoUpdate}
                           >
                             {t('setting:Automatically update plugins')}
-                          </Checkbox>
+                          </Form.Check>
                         </div>
                         <div>
-                          <Checkbox
+                          <Form.Check
+                            type="checkbox"
                             checked={this.props.betaCheck || false}
                             onChange={this.handleEnableBetaPluginCheck}
                           >
                             {t('setting:Developer option check update of beta version')}
-                          </Checkbox>
+                          </Form.Check>
                         </div>
                         <Row>
                           <ButtonGroup className='plugin-buttongroup'>

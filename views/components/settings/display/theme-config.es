@@ -1,7 +1,7 @@
 import path from 'path-extra'
 import fs from 'fs-extra'
 import { shell } from 'electron'
-import { Container, Col, Button, FormControl, Checkbox, Overlay, Tooltip } from 'react-bootstrap'
+import { Container, Col, Button, FormControl, Form, Overlay, Tooltip } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -133,24 +133,24 @@ export class ThemeConfig extends Component {
           </div>
         </Col>
         <Col xs={12}>
-          <Checkbox checked={this.props.enableSVGIcon} onChange={this.handleSetSVGIcon}>
+          <Form.Check type="checkbox" checked={this.props.enableSVGIcon} onChange={this.handleSetSVGIcon}>
             {t('setting:Use SVG Icon')}
-          </Checkbox>
+          </Form.Check>
         </Col>
         <Col xs={12}>
-          <Checkbox checked={this.props.enableTransition} onChange={this.handleSetTransition}>
+          <Form.Check type="checkbox" checked={this.props.enableTransition} onChange={this.handleSetTransition}>
             {t('setting:Enable Smooth Transition')}
-          </Checkbox>
+          </Form.Check>
         </Col>
         <Col xs={12}>
-          <Checkbox checked={this.props.useGridMenu} onChange={this.handleSetGridMenu}>
+          <Form.Check type="checkbox" checked={this.props.useGridMenu} onChange={this.handleSetGridMenu}>
             {t('setting:Use Gridded Plugin Menu')}
-          </Checkbox>
+          </Form.Check>
         </Col>
         <Col xs={12}>
-          <Checkbox checked={this.props.enableAvatar} onChange={this.handleSetAvatar}>
+          <Form.Check type="checkbox" checked={this.props.enableAvatar} onChange={this.handleSetAvatar}>
             {t('setting:Show shipgirl avatar')}
-          </Checkbox>
+          </Form.Check>
         </Col>
       </Container>
     )

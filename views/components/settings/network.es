@@ -1,4 +1,4 @@
-import { FormControl, FormGroup, ControlLabel, Checkbox, Container, Col, Button, Alert, Collapse } from 'react-bootstrap'
+import { FormControl, FormGroup, ControlLabel, Form, Container, Col, Button, Alert, Collapse } from 'react-bootstrap'
 import FontAwesome from 'react-fontawesome'
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
@@ -174,9 +174,9 @@ export class NetworkConfig extends Component {
                 </FormGroup>
               </Col>
               <Col xs={12}>
-                <Checkbox checked={!!this.state.http.requirePassword} onChange={this.handleSetHttpRequirePassword}>
+                <Form.Check type="checkbox" checked={!!this.state.http.requirePassword} onChange={this.handleSetHttpRequirePassword}>
                   {t('setting:Proxy server requires password')}
-                </Checkbox>
+                </Form.Check>
               </Col>
               <div style={(!this.state.http.requirePassword) ? {display: 'none'} : {}} >
                 <Col xs={6}>
@@ -250,7 +250,7 @@ export class NetworkConfig extends Component {
                 <FormControl type="number" value={this.state.port} onChange={this.handleSetPort} placeholder={t('setting:PoiDefaultPort')} />
               </Col>
               <Col xs={12}>
-                <Checkbox checked={this.state.allowLAN} onChange={this.handleSetAllowLAN}>{t('setting:Allow connections from LAN')}</Checkbox>
+                <Form.Check type="checkbox" checked={this.state.allowLAN} onChange={this.handleSetAllowLAN}>{t('setting:Allow connections from LAN')}</Form.Check>
               </Col>
             </div>
           </Collapse>

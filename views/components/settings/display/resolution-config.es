@@ -1,4 +1,4 @@
-import { Container, Col, FormControl, Checkbox } from 'react-bootstrap'
+import { Container, Col, FormControl, Form } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -95,11 +95,12 @@ export class ResolutionConfig extends Component {
     return (
       <Container>
         <Col xs={8}>
-          <Checkbox
+          <Form.Check
+            type="checkbox"
             checked={useFixedResolution}
             onChange={this.handleSetFixedResolution}>
             <Trans>setting:Use certain resolution for game area</Trans>
-          </Checkbox>
+          </Form.Check>
         </Col>
         <Col xs={4}>
           <FormControl as="select"
