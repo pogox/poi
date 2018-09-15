@@ -167,19 +167,19 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 /* progress bar */
-.progress-bar-red {
+.progress-bar.bg-red {
   background-color: #d50000;
 }
 
-.progress-bar-orange {
+.progress-bar.bg-orange {
   background-color: #f57c00;
 }
 
-.progress-bar-yellow {
+.progress-bar.bg-yellow {
   background-color: #fbc02d;
 }
 
-.progress-bar-green {
+.progress-bar.bg-green {
   background-color: #4caf50;
 }
 
