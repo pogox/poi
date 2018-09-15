@@ -7,17 +7,15 @@
   margin-bottom: 15.5px;
 }
 
-.SettingsView #settings-view-tabs {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+
+.SettingsView .nav-pills > .nav-link {
+  padding-left: 0px;
+  padding-right: 0px;
+  flex: 1 1 38px;
+  text-align: center;
 }
 
-.SettingsView #settings-view-tabs > .nav {
-  flex: 0 0 38px;
-}
-
-.SettingsView #settings-view-tabs > .tab-content {
+.SettingsView .nav-pills > .tab-content {
   flex: 1 0 0;
   overflow: scroll;
 }
