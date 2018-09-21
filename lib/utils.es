@@ -2,6 +2,7 @@ import chalk from 'chalk'
 import { webContents, shell, BrowserWindow } from 'electron'
 import WindowManager from './window'
 import { map } from 'lodash'
+import path from 'path'
 
 const stringify = (str) => {
   if (typeof str === 'string') {
@@ -99,6 +100,7 @@ export function stopNavigateAndHandleNewWindow(id) {
         backgroundColor: process.platform === 'darwin' ? '#00000000' : '#E62A2A2A',
         titleBarStyle: process.platform === 'darwin' && Number(require('os').release().split('.')[0]) >= 17 ? 'hidden' : null,
         autoHideMenuBar: true,
+        preload: path.join(global.ROOT, 'sentry.js'),
       }
       e.newGuest = new BrowserWindow(options)
     }

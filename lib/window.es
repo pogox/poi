@@ -35,6 +35,7 @@ export default {
     options = Object.assign({
       show: false,
       icon: path.join(global.ROOT, 'assets', 'icons', 'poi.ico'),
+      preload: path.join(global.ROOT, 'sentry.js'),
     }, normalizePosition(options))
     const current = new BrowserWindow(options)
     if (options.indexName) {

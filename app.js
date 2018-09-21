@@ -155,6 +155,7 @@ app.on('ready', () => {
       nodeIntegrationInWorker: true,
       nativeWindowOpen: true,
       zoomFactor: config.get('poi.appearance.zoom', 1),
+      preload: path.join(__dirname, 'sentry.js'),
     },
     backgroundColor: process.platform === 'darwin' ? '#00000000' : '#E62A2A2A',
   })
