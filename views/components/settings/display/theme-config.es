@@ -8,13 +8,21 @@ import PropTypes from 'prop-types'
 import { get, map } from 'lodash'
 import { fileUrl } from 'views/utils/tools'
 import { withNamespaces } from 'react-i18next'
-import { HTMLSelect, Button, ControlGroup, FormGroup, Intent, Position } from '@blueprintjs/core'
+import {
+  HTMLSelect,
+  Button,
+  ControlGroup,
+  FormGroup,
+  Intent,
+  Position,
+  Tooltip,
+} from '@blueprintjs/core'
 import styled from 'styled-components'
 
 import { Section, Wrapper, FillAvailable } from 'views/components/settings/components/section'
 import { SwitchConfig } from 'views/components/settings/components/switch'
 import { FolderPickerConfig } from 'views/components/settings/components/folder-picker'
-import { Tooltip } from 'views/components/etc/panel-tooltip'
+import themes from 'assets/data/theme.json'
 
 const { openItem } = shell
 
@@ -41,18 +49,21 @@ const SWITCHES = [
     configName: 'poi.appearance.avatar',
     defaultValue: false,
   },
+  {
+    label: 'Use Gridded Plugin Menu',
+    configName: 'poi.tabarea.grid',
+    defaultValue: true,
+  },
 ]
 
 @withNamespaces(['setting'])
 @connect((state, props) => ({
-  themes: get(state, 'ui.themes'),
-  theme: get(state.config, 'poi.appearance.theme', 'paperdark'),
+  theme: get(state.config, 'poi.appearance.theme', 'dark'),
   vibrant: get(state.config, 'poi.appearance.vibrant', 0), // 0: disable, 1: macOS vibrant, 2: custom background
   background: get(state.config, 'poi.appearance.background'),
 }))
 export class ThemeConfig extends Component {
   static propTypes = {
-    themes: PropTypes.arrayOf(PropTypes.string),
     theme: PropTypes.string,
     vibrant: PropTypes.number,
     background: PropTypes.string,
@@ -91,7 +102,7 @@ export class ThemeConfig extends Component {
             <Wrapper>
               <ControlGroup>
                 <HTMLSelect value={this.props.theme} onChange={this.handleSetTheme}>
-                  {this.props.themes.map((theme, index) => (
+                  {themes.map((theme, index) => (
                     <option key={index} value={theme}>
                       {theme[0].toUpperCase() + theme.slice(1)}
                     </option>

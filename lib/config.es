@@ -1,60 +1,96 @@
-import { set, get } from 'lodash'
+import { set, get, isEqual, keys } from 'lodash'
 import EventEmitter from 'events'
 import CSON from 'cson'
 import fs from 'fs-extra'
 import path from 'path-extra'
 import dbg from './debug'
+import defaultConfig from './default-config'
+import { mergeConfig, warn } from './utils'
 
-const { ROOT, EXROOT } = global
-const defaultConfigPath = path.join(ROOT, 'config.cson')
+const { EXROOT } = global
 const configPath = path.join(EXROOT, 'config.cson')
 
-class configClass extends EventEmitter {
+const DEFAULT_CONFIG_PATH_REGEXP = new RegExp(`^[${keys(defaultConfig).join('|')}]`)
+
+class PoiConfig extends EventEmitter {
   constructor() {
     super()
-    this.configData = null
+    this.configData = {}
     try {
       fs.accessSync(configPath, fs.R_OK | fs.W_OK)
-      this.configData = CSON.parseCSONFile(configPath)
+      this.configData = mergeConfig(defaultConfig, CSON.parseCSONFile(configPath))
       dbg.log(`Config loaded from: ${configPath}`)
     } catch (e) {
       dbg.log(e)
     }
-    if (!this.configData) {
-      try {
-        fs.accessSync(defaultConfigPath, fs.R_OK)
-        this.configData = CSON.parseCSONFile(defaultConfigPath) || {}
-        dbg.log(`Config loaded from: ${defaultConfigPath}`)
-      } catch (e) {
-        this.configData = {}
-        dbg.log(e)
-      }
-    }
+    this.defaultConfigData = defaultConfig
   }
-  get = (path, value) => {
+
+  /**
+   * get a config value at give path
+   * @param {String | String[]} path the given config location
+   * @param value value to fallback if queried config is undefined
+   */
+  get = (path = '', value) => {
     if (path === '') {
       return this.configData
     }
-    const ret = get(this.configData, path)
-    if (ret !== undefined) {
-      return ret
-    } else {
-      return value
+    if (dbg.isEnabled()) {
+      const stringPath = Array.isArray(path) ? path.join('.') : path
+      if (
+        DEFAULT_CONFIG_PATH_REGEXP.test(stringPath) &&
+        value !== undefined &&
+        !isEqual(get(this.defaultConfigData, path), value)
+      ) {
+        warn('There might be a mssing config default, check', stringPath, value)
+      }
     }
+    return get(this.configData, path, this.getDefault(path, value))
   }
+
+  /**
+   * get default config value at give path
+   * @param {String | String[]} path the given config location
+   */
+  getDefault = (path = '', value) => {
+    if (path === '') {
+      return this.defaultConfigData
+    }
+    return get(this.defaultConfigData, path, value)
+  }
+
+  /**
+   * set a config value at give path
+   * @param {String | String[]} path the given config location
+   * @param value value to overwrite, if the path belongs to poi's default config, will reset to default value
+   */
   set = (path, value) => {
     if (get(this.configData, path) === value) {
       return
     }
+    if (value === undefined && this.getDefault(path) !== undefined) {
+      value = this.getDefault(path)
+    }
     set(this.configData, path, value)
+    path = Array.isArray(path) ? path.join('.') : path
     this.emit('config.set', path, value)
     this.save()
   }
+
+  /**
+   * set a config value only when it is not set (addition only)
+   * @param {String | String[]} path the given config location
+   * @param value value to overwrite, leaving undefined will remove the config
+   */
   setDefault = (path, value) => {
     if (this.get(path) === undefined) {
       this.set(path, value)
     }
   }
+
+  /**
+   * save current config to file
+   */
   save = () => {
     try {
       fs.writeFileSync(configPath, CSON.stringify(this.configData, null, 2))
@@ -62,10 +98,15 @@ class configClass extends EventEmitter {
       console.warn(e)
     }
   }
+
+  /**
+   * remove a config at given path
+   * @param {String | String[]} path path to remove
+   */
   delete = path => {
     if (typeof this.get(path) !== 'undefined') {
       let p = this.configData
-      const subpath = path.split('.')
+      const subpath = Array.isArray(path) ? path : path.split('.')
       for (const sub of subpath.slice(0, subpath.length - 1)) {
         p = p[sub]
       }
@@ -74,7 +115,7 @@ class configClass extends EventEmitter {
   }
 }
 
-const config = new configClass()
+const config = new PoiConfig()
 config.setMaxListeners(100)
 
 export default config
@@ -89,12 +130,15 @@ if (typeof config.get('poi.layout') === 'string') {
 if (!config.get('poi.plugin')) {
   const windowmode = config.get('poi.windowmode', {})
   const background = config.get('poi.backgroundProcess', {})
-  if (Object.keys(windowmode).length || Object.keys(background).length) {
+  if (keys(windowmode).length || keys(background).length) {
     config.set('poi.plugin', {
       windowmode,
       background,
     })
   }
+}
+if (!['light', 'dark'].includes(config.get('poi.appearance.theme', 'dark'))) {
+  config.set('poi.appearance.theme', 'dark')
 }
 config.delete('poi.windowmode')
 config.delete('poi.backgroundProcess')

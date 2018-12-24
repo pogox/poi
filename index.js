@@ -1,4 +1,8 @@
-require('coffee-script/register')
-require('@babel/register')(require('./babel.config'))
-require('./lib/cli')
-require('./app')
+try {
+  require('./lib/cli')
+} catch (e) {
+  require('@babel/register')(require('./babel.config'))
+  require('./lib/cli')
+} finally {
+  require('./app')
+}

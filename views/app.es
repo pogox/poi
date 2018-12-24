@@ -1,4 +1,4 @@
-/* global $ */
+/* global $, getStore */
 
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
@@ -7,6 +7,7 @@ import { remote, webFrame } from 'electron'
 import { get } from 'lodash'
 import { I18nextProvider } from 'react-i18next'
 import { ThemeProvider } from 'styled-components'
+import { ResizeSensor, Popover } from '@blueprintjs/core'
 
 import '../assets/css/app.css'
 import '../assets/css/global.css'
@@ -19,9 +20,9 @@ import { TitleBarWrapper } from './components/etc/menu'
 import { KanGameWrapper } from './kan-game-wrapper'
 import { KanGameWindowWrapper } from './kan-game-window-wrapper'
 import { PoiApp } from './poi-app'
-import { layoutResizeObserver } from 'views/services/layout'
 import i18next from './env-parts/i18next'
-import { darkTheme } from './theme'
+import { darkTheme, lightTheme } from './theme'
+import { POPOVER_MODIFIERS } from './utils/tools'
 
 const config = remote.require('./lib/config')
 
@@ -34,46 +35,66 @@ window.hack = {}
 // Alert functions
 require('./services/alert')
 
+// configure Popover (including Tooltip)
+// ATTENTION default props will be overriden by providing props
+Popover.defaultProps.modifiers = POPOVER_MODIFIERS
+
 @connect(state => ({
   isHorizontal: get(state, 'config.poi.layout.mode', 'horizontal') === 'horizontal',
   reversed: get(state, 'config.poi.layout.reverse', false),
   isolateGameWindow: get(state, 'config.poi.layout.isolate', false),
+  theme: get(state, 'config.poi.appearance.theme', 'dark'),
 }))
 class Poi extends Component {
-  componentWillUnmount() {
-    layoutResizeObserver.unobserve(this.poimain)
+  handleResize = entries => {
+    entries.forEach(entry => {
+      const { width, height } = entry.contentRect
+      if (
+        width !== 0 &&
+        height !== 0 &&
+        (width !== getStore('layout.window.width') || height !== getStore('layout.window.height'))
+      ) {
+        this.props.dispatch({
+          type: '@@LayoutUpdate',
+          value: {
+            window: {
+              width,
+              height,
+            },
+          },
+        })
+      }
+    })
   }
 
-  componentDidMount() {
-    layoutResizeObserver.observe(this.poimain)
-  }
   render() {
-    const { isHorizontal, reversed } = this.props
+    const { isHorizontal, reversed, theme } = this.props
     return (
-      <>
-        {config.get(
-          'poi.appearance.customtitlebar',
-          process.platform === 'win32' || process.platform === 'linux',
-        ) && (
-          <title-bar>
-            <TitleBarWrapper />
-          </title-bar>
-        )}
-        <poi-main
-          ref={ref => {
-            this.poimain = ref
-          }}
-          style={{
-            flexFlow: `${isHorizontal ? 'row' : 'column'}${reversed ? '-reverse' : ''} nowrap`,
-            ...(!isHorizontal && { overflow: 'hidden' }),
-          }}
-        >
-          {this.props.isolateGameWindow ? <KanGameWindowWrapper /> : <KanGameWrapper />}
-          <PoiApp />
-        </poi-main>
-        <ModalTrigger />
-        <BasicAuth />
-      </>
+      <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+        <>
+          {config.get(
+            'poi.appearance.customtitlebar',
+            process.platform === 'win32' || process.platform === 'linux',
+          ) && (
+            <title-bar>
+              <TitleBarWrapper />
+            </title-bar>
+          )}
+          <ResizeSensor onResize={this.handleResize}>
+            <poi-main
+              style={{
+                flexFlow: `${isHorizontal ? 'row' : 'column'}${reversed ? '-reverse' : ''} nowrap`,
+                ...(!isHorizontal && { overflow: 'hidden' }),
+              }}
+            >
+              {this.props.isolateGameWindow ? <KanGameWindowWrapper /> : <KanGameWrapper />}
+              <PoiApp />
+            </poi-main>
+          </ResizeSensor>
+          <ModalTrigger />
+          <BasicAuth />
+        </>
+      </ThemeProvider>
     )
   }
 }
@@ -81,16 +102,14 @@ class Poi extends Component {
 ReactDOM.render(
   <I18nextProvider i18n={i18next}>
     <Provider store={store}>
-      <ThemeProvider theme={darkTheme}>
-        <WindowEnv.Provider
-          value={{
-            window,
-            mountPoint: document.body,
-          }}
-        >
-          <Poi />
-        </WindowEnv.Provider>
-      </ThemeProvider>
+      <WindowEnv.Provider
+        value={{
+          window,
+          mountPoint: document.body,
+        }}
+      >
+        <Poi />
+      </WindowEnv.Provider>
     </Provider>
   </I18nextProvider>,
   $('#poi'),

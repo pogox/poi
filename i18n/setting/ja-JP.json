@@ -75,6 +75,8 @@
   "Advanced": "詳細設定",
   "Advanced functionalities": "特殊機能",
   "Disable Hardware Acceleration": "ハードウェアアクセラレーションを無効化する",
+  "Limit max FPS": "最大 FPS を制限する",
+  "Limit": "制限",
   "Editing DMM Cookie Region Flag": "DMMリージョンクッキーを設定する",
   "Prevent DMM Network Change Popup": "DMMネットワーク変更アラートを阻止する",
   "Use SVG Icon": "SVGアイコンを使用する",
@@ -203,5 +205,16 @@
   "Linked": "リンクされた",
   "Available": "利用可能",
   "repair-plugins-confirmation": "poi は現在のプラグインディレクトリを削除してプラグインを再インストールしますが、この操作はプラグインデータには影響しませんが、時間がかかります。続行しますか？",
-  "Network setting changes will be effective after restarting poi": "ネットワーク設定の変更は、poi を再起動した後に有効になります"
+  "Network setting changes will be effective after restarting poi": "ネットワーク設定の変更は、poi を再起動した後に有効になります",
+  "Accessibility": "アクセシビリティ",
+  "Color blind mode": "カラーブラインドモード",
+  "none": "無し",
+  "protanopia": "1型2色覚/赤色盲",
+  "protanomaly": "1型3色覚/赤色弱",
+  "deuteranopia": "2型2色覚/緑色盲",
+  "deuteranomaly": "2型3色覚/緑色弱",
+  "tritanopia": "3型2色覚/青色盲",
+  "tritanomaly": "3型3色覚/青色弱",
+  "achromatopsia": "1色覚/全色盲",
+  "achromatomaly": "異常3色覚/色弱"
 }

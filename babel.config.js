@@ -10,14 +10,15 @@ module.exports = {
       },
     ],
     require.resolve('@babel/preset-react'),
+    require.resolve('@babel/preset-typescript'),
   ],
   plugins: [
     require.resolve('babel-plugin-styled-components'),
     [require.resolve('@babel/plugin-proposal-decorators'), { legacy: true }],
+    [require.resolve('@babel/plugin-proposal-class-properties'), { loose: true }],
     [require.resolve('@babel/plugin-proposal-pipeline-operator'), { proposal: 'minimal' }],
   ].concat(
     [
-      '@babel/plugin-proposal-class-properties',
       '@babel/plugin-proposal-do-expressions',
       '@babel/plugin-proposal-export-default-from',
       '@babel/plugin-proposal-export-namespace-from',
@@ -36,7 +37,8 @@ module.exports = {
     ].map(plugin => require.resolve(plugin)),
   ),
   ignore: [],
-  only: [/.es$/],
+  only: [/\.(es|ts|tsx)$/],
+  extensions: ['.es', '.ts', '.tsx'],
   babelrc: false,
   cache: false,
 }

@@ -5,7 +5,8 @@ import { map, capitalize, memoize, size, throttle } from 'lodash'
 import { withNamespaces } from 'react-i18next'
 import { Card, Tooltip, AnchorButton, Intent } from '@blueprintjs/core'
 import { shell } from 'electron'
-import FA from 'react-fontawesome'
+import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome'
+import osName from 'os-name'
 
 const Wrapper = styled.div`
   margin-bottom: 1em;
@@ -60,19 +61,19 @@ const LinksArea = styled.div`
 
 const LINKS = [
   {
-    icon: 'weibo',
+    icon: ['fab', 'weibo'],
     name: 'Weibo',
     language: ['zh-CN', 'zh-TW'],
     href: 'http://weibo.com/letspoi',
   },
   {
-    icon: 'qq',
+    icon: ['fab', 'qq'],
     name: 'QQ Group 378320628',
     language: ['zh-CN', 'zh-TW'],
     href: 'https://jq.qq.com/?_wv=1027&k=5MRX31j',
   },
   {
-    icon: 'discord',
+    icon: ['fab', 'discord'],
     name: 'Discord channel',
     language: ['en-US'],
     href: 'https://discordapp.com/channels/118339803660943369/367575898313981952',
@@ -88,7 +89,7 @@ const LINKS = [
     href: 'https://github.com/poooi/poi/wiki',
   },
   {
-    icon: 'github',
+    icon: ['fab', 'github'],
     name: 'GitHub',
     href: 'https://github.com/poooi/poi',
   },
@@ -98,6 +99,26 @@ const openLink = memoize(link => () => shell.openExternal(link))
 
 const audio = new Audio(`file://${ROOT}/assets/audio/about.mp3`)
 const playPoiAudio = throttle(() => audio.play(), 3000, { trailing: false })
+
+const os = do {
+  try {
+    osName()
+  } catch (e) {
+    switch (process.platform) {
+      case 'win32': {
+        ;('Windows')
+        break
+      }
+      case 'darwin': {
+        ;('macOS')
+        break
+      }
+      default: {
+        ;('Linux')
+      }
+    }
+  }
+}
 
 // FIXME: Eggs for April 1st, to remove in next version
 const today = new Date()
@@ -112,6 +133,9 @@ export const VersionInfo = withNamespaces(['setting'])(({ t }) => (
           <PoiName>{aprilFirst ? 'chiba' : 'poi'}</PoiName> {POI_VERSION}
         </Title>
         <VersionDetail>
+          <div>
+            <Entry>OS</Entry> {os}
+          </div>
           {map(['electron', 'chrome', 'node'], name => (
             <div key={name}>
               <Entry>{capitalize(name)}</Entry> {process.versions[name]}
@@ -130,9 +154,9 @@ export const VersionInfo = withNamespaces(['setting'])(({ t }) => (
           LINKS,
           ({ icon, name, language, href }) =>
             (!size(language) || language.includes(window.language)) && (
-              <Tooltip key={icon} content={t(name)}>
+              <Tooltip key={name} content={t(name)}>
                 <AnchorButton minimal intent={Intent.PRIMARY} onClick={openLink(href)}>
-                  <FA name={icon} />
+                  <FA icon={icon} />
                 </AnchorButton>
               </Tooltip>
             ),

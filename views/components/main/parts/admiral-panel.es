@@ -7,11 +7,10 @@ import moment from 'moment-timezone'
 import FontAwesome from 'react-fontawesome'
 import { withNamespaces, Trans } from 'react-i18next'
 import i18next from 'views/env-parts/i18next'
-import { Tag, Position, Intent } from '@blueprintjs/core'
+import { Tag, Position, Intent, Tooltip } from '@blueprintjs/core'
 import { compose } from 'redux'
 import styled from 'styled-components'
 
-import { Tooltip } from 'views/components/etc/panel-tooltip'
 import { CountdownNotifierLabel } from './countdown-timer'
 import { configSelector, basicSelector } from 'views/utils/selectors'
 import { InfoTooltipEntry, InfoTooltipItem } from 'views/components/etc/styled-components'
@@ -372,20 +371,26 @@ const CountdownContent = ({ moments }) => (
   </div>
 )
 
-const admiralInfoSelector = createSelector([basicSelector], basic => ({
-  level: get(basic, 'api_level', -1),
-  nickname: get(basic, 'api_nickname', ''),
-  rank: get(basic, 'api_rank', 0),
-  maxShip: get(basic, 'api_max_chara', 0),
-  maxSlotitem: get(basic, 'api_max_slotitem', 0),
-}))
+const admiralInfoSelector = createSelector(
+  [basicSelector],
+  basic => ({
+    level: get(basic, 'api_level', -1),
+    nickname: get(basic, 'api_nickname', ''),
+    rank: get(basic, 'api_rank', 0),
+    maxShip: get(basic, 'api_max_chara', 0),
+    maxSlotitem: get(basic, 'api_max_slotitem', 0),
+  }),
+)
 
-const numCheckSelector = createSelector([configSelector], config => ({
-  shipNumCheck: get(config, 'poi.mapStartCheck.ship.enable', false),
-  minShipNum: get(config, 'poi.mapStartCheck.ship.minFreeSlots', 4),
-  slotNumCheck: get(config, 'poi.mapStartCheck.item.enable', false),
-  minSlotNum: get(config, 'poi.mapStartCheck.item.minFreeSlots', 10),
-}))
+const numCheckSelector = createSelector(
+  [configSelector],
+  config => ({
+    shipNumCheck: get(config, 'poi.mapStartCheck.ship.enable', false),
+    minShipNum: get(config, 'poi.mapStartCheck.ship.minFreeSlots', 4),
+    slotNumCheck: get(config, 'poi.mapStartCheck.item.enable', false),
+    minSlotNum: get(config, 'poi.mapStartCheck.item.minFreeSlots', 10),
+  }),
+)
 
 export const AdmiralPanel = withNamespaces(['main'])(
   connect(state => ({

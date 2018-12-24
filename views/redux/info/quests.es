@@ -155,11 +155,11 @@ function outdateRecords(questGoals, records, then, now) {
 
 function filterActiveQuestFactory(now) {
   return (activeQuest = {}) => {
-    const { time, detail: { api_type } = {} } = activeQuest
+    const { time, detail: { api_type, api_no } = {} } = activeQuest
     if (!time || !api_type) return false
     if (!isDifferentDay(now, time)) return true
     // Daily
-    if (api_type == 1 || api_type == 5) return false
+    if (api_type == 1 || api_no == 211 || api_no == 212) return false
     // Weekly
     if (isDifferentWeek(now, time) && api_type == 2) return false
     // Monthly
@@ -170,7 +170,7 @@ function filterActiveQuestFactory(now) {
 
 function outdateActiveQuests(activeQuests, now) {
   const activeQuestList = values(activeQuests).filter(filterActiveQuestFactory(now))
-  if (activeQuestList.length === Object.keys(activeQuests).lenfth) return activeQuests
+  if (activeQuestList.length === Object.keys(activeQuests).length) return activeQuests
   return formActiveQuests(activeQuestList)
 }
 

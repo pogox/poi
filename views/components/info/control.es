@@ -84,10 +84,10 @@ export class PoiControl extends Component {
   }
   handleScreenshotCaptured = ({ dataURL, toClipboard }) => {
     const screenshotPath = config.get(
-      'poi.screenshotPath',
+      'poi.misc.screenshot.path',
       remote.getGlobal('DEFAULT_SCREENSHOT_PATH'),
     )
-    const usePNG = config.get('poi.screenshotFormat', 'png') === 'png'
+    const usePNG = config.get('poi.misc.screenshot.format', 'png') === 'png'
 
     const image = nativeImage.createFromDataURL(dataURL)
     if (toClipboard) {

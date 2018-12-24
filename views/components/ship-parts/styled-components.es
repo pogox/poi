@@ -147,6 +147,7 @@ export const ShipBasic = styled.div`
   opacity: 0.8;
   padding-top: 0;
   vertical-align: bottom;
+  display: flex;
   ${({ show }) =>
     !show &&
     css`
@@ -168,6 +169,7 @@ export const ShipSubText = styled.div`
 export const ShipLabel = styled.span`
   margin-left: 5px;
   margin-right: 5px;
+  height: 1em;
   ${({ isTag }) =>
     isTag &&
     css`
@@ -284,7 +286,7 @@ export const SlotItemContainer = styled.div`
   vertical-align: bottom;
 
   &::after {
-    background-color: rgba(33, 33, 33, 0.7);
+    background-color: ${props => props.theme.slotBg};
     border-radius: 9px;
     bottom: -3px;
     content: attr(data-onslot);
@@ -297,14 +299,10 @@ export const SlotItemContainer = styled.div`
     position: absolute;
     text-align: center;
     width: 18px;
-    display: ${props => (props.onslot ? 'inline' : 'none')};
+    display: ${props => (props.showOnslot ? 'inline' : 'none')};
   }
 
-  ${({ warining }) =>
-    warining &&
-    css`
-      color: #f39c12;
-    `}
+  color: ${props => props.warning && props.theme.ORANGE1};
 
   .png {
     height: 32px;

@@ -36,6 +36,15 @@ export class PoiToast extends React.PureComponent {
     if (!message) {
       return
     }
+    message = options.title ? (
+      <>
+        <strong>{options.title}</strong>
+        <br />
+        {message}
+      </>
+    ) : (
+      message
+    )
     const intent = intentTypes.has(options.type)
       ? options.type
       : map[options.type] || Intent.PRIMARY
@@ -61,6 +70,7 @@ export class PoiToast extends React.PureComponent {
   render() {
     return (
       <ToasterPositioned
+        autoFocus={true}
         position={Position.BOTTOM_RIGHT}
         ref={ref => (this.toaster = ref)}
         inbound={this.props.isolateGameWindow || this.props.webviewWidth >= 400}

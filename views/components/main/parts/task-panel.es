@@ -1,13 +1,13 @@
+/* global config */
 import { connect } from 'react-redux'
 import { get, map, range, forEach, values, sortBy } from 'lodash'
-import { Tag, Intent, ResizeSensor } from '@blueprintjs/core'
+import { Tag, Intent, ResizeSensor, Tooltip } from '@blueprintjs/core'
 import { createSelector } from 'reselect'
 import React from 'react'
 import { withNamespaces, Trans } from 'react-i18next'
 import styled, { css } from 'styled-components'
 
 import { escapeI18nKey } from 'views/utils/tools'
-import { Tooltip } from 'views/components/etc/panel-tooltip'
 import { CardWrapper as CardWrapperL } from './styled-components'
 
 import {
@@ -15,7 +15,8 @@ import {
   configReverseLayoutSelector,
   extensionSelectorFactory,
 } from 'views/utils/selectors'
-import defaultLayout from '../default-layout'
+
+const defaultLayout = config.getDefault('poi.mainpanel.layout')
 
 const getPanelDimension = width => {
   if (width > 700) {
@@ -171,6 +172,10 @@ const CatIndicator = styled.span`
   margin-top: -1px;
 `
 
+const QuestDescription = styled.div`
+  max-width: 25em;
+`
+
 const TaskRowBase = connect(
   createSelector(
     [
@@ -267,14 +272,14 @@ const TaskRow = withNamespaces(['resources'])(
         bulletColor={quest ? getCategory(quest.api_category) : '#fff'}
         leftLabel={`${wikiIdPrefix}${questName}`}
         leftOverlay={
-          <div>
+          <QuestDescription>
             <strong>
               {wikiIdPrefix}
               {questName}
             </strong>
             <br />
             {questContent}
-          </div>
+          </QuestDescription>
         }
         rightLabel={progressLabel}
         rightIntent={progressIntent}

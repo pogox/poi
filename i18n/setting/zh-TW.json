@@ -75,6 +75,8 @@
   "Advanced": "高階設定",
   "Advanced functionalities": "高階功能",
   "Disable Hardware Acceleration": "禁用硬體加速",
+  "Limit max FPS": "限制最大 FPS",
+  "Limit": "限制",
   "Editing DMM Cookie Region Flag": "設定 DMM 地區 Cookie",
   "Prevent DMM Network Change Popup": "遮蔽 DMM 網路變更警告",
   "Use SVG Icon": "使用高畫質圖示",
@@ -203,5 +205,16 @@
   "Linked": "鏈接插件",
   "Available": "可用更新",
   "repair-plugins-confirmation": "poi 將刪除當前插件目錄並重新安裝插件，這個操作不會影響插件數據，但需要一定的時間，繼續嗎？",
-  "Network setting changes will be effective after restarting poi": "網路設置的變更將在重新啓動 poi 後生效"
+  "Network setting changes will be effective after restarting poi": "網路設置的變更將在重新啓動 poi 後生效",
+  "Accessibility": "無障礙",
+  "Color blind mode": "色盲模式",
+  "none": "無",
+  "protanopia": "紅色盲",
+  "protanomaly": "紅色弱",
+  "deuteranopia": "綠色盲",
+  "deuteranomaly": "綠色弱",
+  "tritanopia": "藍色盲",
+  "tritanomaly": "藍色弱",
+  "achromatopsia": "全色盲",
+  "achromatomaly": "色弱"
 }

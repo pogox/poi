@@ -102,9 +102,12 @@ export const Slotitems = compose(
             key={equipIdx}
           >
             <SlotItemContainer
-              className="slotitem-container"
+              className={classNames('slotitem-container', {
+                'with-onslot': showOnslot,
+                'without-onslot': !showOnslot,
+              })}
               data-onslot={onslotText}
-              onslot={showOnslot}
+              showOnslot={showOnslot}
               warning={onslotWarning}
             >
               <SlotitemIcon className="slotitem-img" slotitemId={equipIconId} />
@@ -183,7 +186,7 @@ export const LandbaseSlotitems = compose(
               className="slotitem-container"
               data-onslot={onslotText}
               style={iconStyle}
-              onslot={showOnslot}
+              showOnslot={showOnslot}
               warning={onslotWarning}
             >
               <SlotitemIcon className="slotitem-img" slotitemId={equipIconId} />

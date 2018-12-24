@@ -95,10 +95,12 @@ require('./lib/flash')
 let mainWindow, appIcon
 global.mainWindow = mainWindow = null
 
-// Fix confused cursor in HiDPI
-// https://github.com/electron/electron/issues/7655#issuecomment-259688853
-if (process.platform === 'win32') {
-  app.commandLine.appendSwitch('enable-use-zoom-for-dsf', 'false')
+// Set FPS limit
+if (config.get('poi.misc.limitFps.enabled')) {
+  const value = parseInt(config.get('poi.misc.limitFps.value'))
+  if (Number.isFinite(value)) {
+    app.commandLine.appendSwitch('limit-fps', String(value))
+  }
 }
 
 // Test: enable JavaScript experimental features
@@ -222,7 +224,7 @@ app.on('ready', () => {
   }
 
   // devtool
-  if (dbg.isEnabled() && config.get('poi.devtool.enable', true)) {
+  if (dbg.isEnabled() && config.get('poi.devtool.enable', false)) {
     require('./lib/devtool')
   }
 })

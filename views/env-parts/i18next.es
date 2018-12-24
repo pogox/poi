@@ -3,7 +3,7 @@ import path from 'path-extra'
 import glob from 'glob'
 import { isString, toString, each, debounce } from 'lodash'
 import I18next from 'i18next'
-import { reactI18nextModule, translate } from 'react-i18next'
+import { reactI18nextModule } from 'react-i18next'
 import { spacing as _spacing } from 'pangu'
 import { format } from 'util'
 import formatJson from 'json-format'
@@ -83,6 +83,7 @@ i18next.use(reactI18nextModule).init({
   react: {
     wait: false,
     nsMode: 'fallback',
+    usePureComponent: true,
   },
   saveMissing: dbg && dbg.extra('i18next-save-missing').isEnabled(),
   missingKeyHandler: function(lng, ns, key, fallbackValue) {

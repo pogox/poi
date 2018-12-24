@@ -48,7 +48,7 @@ export function getMaterialStyle(percent) {
 }
 
 export function getCondStyle(cond) {
-  let s = 'poi-ship-cond-'
+  let s = 'poi-ship-cond poi-ship-cond-'
   if (cond > 52) s += '53'
   else if (cond > 49) s += '50'
   else if (cond == 49) s += '49'
@@ -108,9 +108,13 @@ export function getHpStyle(percent) {
   }
 }
 
-// equip: $equip or $equip.api_type[3]
+/**
+ * test if an equipment is aircraft using api_type[2] or api_type[3]
+ * @param {Equip | number} equip equip (master) data or api_type[3]
+ */
 export function equipIsAircraft(equip) {
   if (Number.isInteger(equip)) {
+    // compat: the function used to accept api_type[3]
     return (
       equip != null &&
       (between(equip, 6, 10) ||
@@ -388,7 +392,7 @@ export function getSaku33(shipsData, equipsData, teitokuLv, mapModifier = 1.0, s
           equipSaku += ($equip.api_saku + 1.2 * Math.sqrt(_equip.api_level || 0)) * 1.2
           break
         case 11:
-          equipSaku += $equip.api_saku * 1.1
+          equipSaku += ($equip.api_saku + 1.15 * Math.sqrt(_equip.api_level || 0)) * 1.1
           break
         case 12:
           equipSaku += ($equip.api_saku + 1.25 * Math.sqrt(_equip.api_level || 0)) * 0.6

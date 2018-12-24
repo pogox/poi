@@ -25,7 +25,7 @@ const PoiTabChildPositioner = styled.div`
   ${({ transition }) =>
     transition &&
     css`
-      transition: transform 0.3s 0.2s cubic-bezier(1, 0, 0, 1);
+      transition: transform 0.3s 0.1s cubic-bezier(1, 0, 0, 1);
     `}
   ${({ left, right }) =>
     left
@@ -42,7 +42,7 @@ const PoiTabChildPositioner = styled.div`
     !active &&
     css`
       & > * {
-        display: none;
+        display: none !important;
       }
     `}
 `
@@ -53,7 +53,7 @@ const PoiTabChildPositioner = styled.div`
   }),
   undefined,
   undefined,
-  { pure: true, withRef: true },
+  { pure: true, forwardRef: true },
 )
 export class TabContentsUnion extends Component {
   static propTypes = {
